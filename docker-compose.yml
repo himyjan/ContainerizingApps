@@ -36,3 +36,49 @@ services:
       - "./vue/.env"
     ports:
       - 8083:3000
+
+  dotnetapp:
+    build:
+      context: "dotnetapp/"
+    image: dotnetapp
+  
+  aspnetapp:
+    build:
+      context: "aspnetapp/"
+    image: aspnetapp
+  
+  complexapp:
+    build:
+      context: "complexapp/"
+    image: complexapp
+
+  blazor:
+    image: ${DOCKER_REGISTRY-}blazor
+    build:
+      context: "."
+      dockerfile: ./blazor/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;https://+:80
+    ports:
+      - 8084:80
+      - 8085:443
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+  db:
+    container_name: 'local-blazor-db'
+    image: 'mysql:latest'
+    volumes:
+      - './MySQL:/var/lib/mysql'
+    networks:
+      - database
+    ports:
+      - 3306
+    env_file:
+      - ./blazor/.env
+    restart: unless-stopped
+
+networks:
+  database:
+  default:

@@ -1,0 +1,36 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../usr/local/share/dotnet/sdk/6.0.101/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets">
+    <Files>
+      <File FileName="appsettings.json" Line="1" Column="1" />
+      <File FileName="Blazor-Docker.csproj" Line="4" Column="29" />
+      <File FileName="Startup.cs" Line="51" Column="1" />
+      <File FileName="Program.cs" Line="31" Column="10" />
+      <File FileName="../../../../../../usr/local/share/dotnet/sdk/6.0.101/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="277" Column="46" />
+      <File FileName="index.html" Line="1" Column="1" />
+      <File FileName="Helpers/DefaultContext.cs" Line="8" Column="1" />
+      <File FileName="Data/WeatherForecast.cs" Line="1" Column="10" />
+      <File FileName="Data/WeatherForecastService.cs" Line="1" Column="10" />
+      <File FileName="Pages/FetchData.razor" Line="1" Column="1" />
+      <File FileName="Properties/launchSettings.json" Line="23" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Blazor-Docker" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Blazor-Docker.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
