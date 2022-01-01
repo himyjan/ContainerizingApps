@@ -8,7 +8,7 @@ services:
     env_file:
       - "./node/.env"
     ports:
-      - 3000:3000
+      - 8080:3000
 
   react:
     build:
@@ -17,7 +17,7 @@ services:
     env_file:
       - "./react/.env"
     ports:
-      - 4000:3000
+      - 8081:3000
 
   angular:
     build:
@@ -26,7 +26,7 @@ services:
     env_file:
       - "./angular/.env"
     ports:
-      - 8080:3000
+      - 8082:3000
 
   vue:
     build:
@@ -35,4 +35,4 @@ services:
     env_file:
       - "./vue/.env"
     ports:
-      - 8081:3000
+      - 8083:3000
