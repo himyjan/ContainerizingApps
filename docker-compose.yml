@@ -73,7 +73,9 @@ services:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
 
-  web:
+
+#######################################
+  phpweb:
       image: nginx:latest
       restart: unless-stopped
       ports:
@@ -105,9 +107,9 @@ services:
     networks:
       - dhbw
     depends_on:
-      - db
+      - mariadb
 
-  db:
+  mariadb:
     image: mariadb:latest
     restart: unless-stopped
     ports:
@@ -137,13 +139,56 @@ services:
     ports:
       - "${PHPMYADMIN_PORT:-8081}:80"
     environment:
-      - PMA_HOST=db
+      - PMA_HOST=mariadb
       - PMA_USER=root
     networks:
       - dhbw
     depends_on:
-      - db
+      - mariadb
 
+########################################### 1
+  djangoweb:
+    build: ./django
+    command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    expose:
+      - 8000
+    ports:
+      - 8087:8000
+    env_file:
+      - ./django/.env.prod
+    depends_on: 
+      - postgresdb
+
+  postgresdb:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./django/.env.prod.db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=django_dev
+
+  nginx:
+      build: ./django/nginx
+      ports:
+      - 80:8000
+      volumes:
+      - ./django/nginx:/etc/nginx/conf.d
+      - static_volume:/home/app/djangoweb/staticfiles
+      - media_volume:/home/app/djangoweb/mediafiles
+      depends_on: 
+      - djangoweb
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+########################################### 1
 
 networks:
   dhbw:

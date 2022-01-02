@@ -4,7 +4,7 @@ $phpVersion = phpversion();
 [,$phpPort] = explode(':', $_SERVER['HTTP_HOST']);
 $phpMyAdminPort = $_SERVER['PHPMYADMIN_PORT'];
 $webMailPort = $_SERVER['WEBMAIL_PORT'];
-$dsn = 'mysql:host=db;dbname=information_schema;char=utf8mb4';
+$dsn = 'mysql:host=mariadb;dbname=information_schema;char=utf8mb4';
 $warning = [];
 $error = [];
 
