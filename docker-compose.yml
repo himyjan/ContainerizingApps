@@ -8,16 +8,7 @@ services:
     env_file:
       - "./node/.env"
     ports:
-      - 8080:3000
-
-  react:
-    build:
-      context: "react/"
-    image: react-app
-    env_file:
-      - "./react/.env"
-    ports:
-      - 8081:3000
+      - 8090:3000
 
   angular:
     build:
@@ -28,6 +19,15 @@ services:
     ports:
       - 8082:3000
 
+  react:
+    build:
+      context: "react/"
+    image: react-app
+    env_file:
+      - "./react/.env"
+    ports:
+      - 8083:3000
+
   vue:
     build:
       context: "vue/"
@@ -35,7 +35,7 @@ services:
     env_file:
       - "./vue/.env"
     ports:
-      - 8083:3000
+      - 8084:3000
 
   dotnetapp:
     build:
@@ -52,6 +52,13 @@ services:
       context: "complexapp/"
     image: complexapp
 
+  flutterweb:
+    build:
+      context: "flutterweb/"
+    image: flutterweb
+    ports:
+      - 8085:3000
+
   blazor:
     image: ${DOCKER_REGISTRY-}blazor
     build:
@@ -59,26 +66,86 @@ services:
       dockerfile: ./blazor/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;https://+:80
+      - ASPNETCORE_URLS=https://+:3000
     ports:
-      - 8084:80
-      - 8085:443
+      - 8086:3000
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-  db:
-    container_name: 'local-blazor-db'
-    image: 'mysql:latest'
+
+  web:
+      image: nginx:latest
+      restart: unless-stopped
+      ports:
+        - "${HTTP_PORT:-8080}:80"
+        - "${HTTPS_PORT:-8443}:443"
+      volumes:
+        - ./xampp/build/nginx:/etc/nginx/conf.d
+        - ${PWD}/xampp/build/index.php:/application/index.php
+        - ./xampp/php:/application/php
+      networks:
+        dhbw:
+          aliases:
+            - dhbw.test
+      depends_on:
+        - php
+
+  php:
+    build:
+      context: ./xampp/build
+      dockerfile: php.dockerfile
+    environment:
+      XDEBUG_CONFIG: remote_host=${XDEBUG_REMOTE_HOST:-host.docker.internal}
+      PHP_IDE_CONFIG: "serverName=docker"
+      WEBMAIL_PORT: "${WEBMAIL_PORT:-8025}"
+      PHPMYADMIN_PORT: "${PHPMYADMIN_PORT:-8081}"
     volumes:
-      - './MySQL:/var/lib/mysql'
+      - ${PWD}/xampp/build/index.php:/application/index.php
+      - ./xampp/php:/application/php
     networks:
-      - database
-    ports:
-      - 3306
-    env_file:
-      - ./blazor/.env
+      - dhbw
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
     restart: unless-stopped
+    ports:
+      - "${DB_PORT:-8306}:3306"
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./xampp/data/mysql:/var/lib/mysql
+      - ./xampp/log/mysql:/var/log/mysql
+    networks:
+      - dhbw
+
+
+  mail:
+    image: mailhog/mailhog:latest
+    restart: unless-stopped
+    ports:
+      - "${WEBMAIL_PORT:-8025}:8025"
+    networks:
+      - dhbw
+
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+    networks:
+      - dhbw
+    depends_on:
+      - db
+
 
 networks:
-  database:
-  default:
+  dhbw:
+    name: "${COMPOSE_PROJECT_NAME:-dhbw}"
+    external: false

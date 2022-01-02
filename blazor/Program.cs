@@ -8,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+// builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"C:\temp-keys\"))
+//                 .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
+//                 {
+//                     EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+//                     ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+//                 });
 
 var app = builder.Build();
 
