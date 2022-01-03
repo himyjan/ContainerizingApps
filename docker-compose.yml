@@ -66,9 +66,9 @@ services:
       dockerfile: ./blazor/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:5001
+      - ASPNETCORE_URLS=https://+:8086
     ports:
-      - 8086:5001
+      - 8086:8086
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
@@ -147,6 +147,21 @@ services:
       - mariadb
 
 ########################################### 1
+  fastapi:
+    build: ./fastapi
+    command: uvicorn app.main:app --reload
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    expose:
+      - 8000
+    ports:
+      - 8088:8000
+    # env_file:
+    #   - ./fastapi/.env.prod
+    # depends_on: 
+    #   - postgresdb
+
   djangoweb:
     build: ./django
     command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
