@@ -64,7 +64,7 @@ Blazor Server (dotnet v6)
 docker-compose up -d --build blazorserver
 ```
 
-http://localhost:8086
+http://localhost:8086 try 5001 and then try 8086
 
 Blazor WebAssembly (dotnet v6) - not work
 

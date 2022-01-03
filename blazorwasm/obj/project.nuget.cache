@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C8gCJVzwClwyNijfr5l8yS/45KrrRDUdTqy9It0a6eIVVuCt4to2LfJU7IjQh2VYVur5YUSrdAdmwyYfS0CAMQ==",
+  "dgSpecHash": "WPKo/tfVqiaSav0sOU17VNIvWFOCEeHVmV5Yue0ocCT8hVOYSz3vAC7dXSAegknNSkC2TTGMwwqH0LQ8YtRdhw==",
   "success": true,
-  "projectFilePath": "/Users/rain/Desktop/Code/123/blazorwasm/blazorwasm.csproj",
+  "projectFilePath": "/Users/rain/Desktop/Code/ContainerizingApps_Github/blazorwasm/blazorwasm.csproj",
   "expectedPackageFiles": [
     "/Users/rain/.nuget/packages/microsoft.aspnetcore.authorization/6.0.1/microsoft.aspnetcore.authorization.6.0.1.nupkg.sha512",
     "/Users/rain/.nuget/packages/microsoft.aspnetcore.components/6.0.1/microsoft.aspnetcore.components.6.0.1.nupkg.sha512",

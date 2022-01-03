@@ -1551,14 +1551,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rain/Desktop/Code/123/blazorwasm/blazorwasm.csproj",
+      "projectUniqueName": "/Users/rain/Desktop/Code/ContainerizingApps_Github/blazorwasm/blazorwasm.csproj",
       "projectName": "blazorwasm",
-      "projectPath": "/Users/rain/Desktop/Code/123/blazorwasm/blazorwasm.csproj",
+      "projectPath": "/Users/rain/Desktop/Code/ContainerizingApps_Github/blazorwasm/blazorwasm.csproj",
       "packagesPath": "/Users/rain/.nuget/packages/",
-      "outputPath": "/Users/rain/Desktop/Code/123/blazorwasm/obj/",
+      "outputPath": "/Users/rain/Desktop/Code/ContainerizingApps_Github/blazorwasm/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/rain/.nuget/NuGet/NuGet.Config"
+        "/Users/rain/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

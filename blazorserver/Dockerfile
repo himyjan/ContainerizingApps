@@ -21,7 +21,7 @@ RUN dotnet dev-certs https --clean
 RUN dotnet dev-certs https --verbose
 WORKDIR /var/www
 COPY --from=publish /app/publish /var/www
-EXPOSE 5001
+EXPOSE 8086
 ENTRYPOINT ["dotnet", "/var/www/blazorserver.dll"]
 
 # FROM nginx:latest

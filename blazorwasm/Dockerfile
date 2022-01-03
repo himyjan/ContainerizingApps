@@ -21,15 +21,15 @@ RUN dotnet dev-certs https --clean
 RUN dotnet dev-certs https --verbose
 WORKDIR /var/www
 COPY --from=publish /app/publish /var/www
-EXPOSE 5001
-ENTRYPOINT ["dotnet", "/var/www/blazorwasm.dll"]
+EXPOSE 8087
+# ENTRYPOINT ["dotnet", "/var/www/blazorwasm.dll"]
 
-# FROM nginx:latest
+FROM nginx:latest
 # WORKDIR /var/www
 # COPY --from=publish /app/publish /var/www
 # COPY /blazorwasm/nginx.conf /etc/nginx/nginx.conf
 # EXPOSE 5000
-# ENTRYPOINT ["nginx","-g","daemon off;"]
+ENTRYPOINT ["nginx","-g","daemon off;"]
 
 
 
