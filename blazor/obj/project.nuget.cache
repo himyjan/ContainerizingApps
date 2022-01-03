@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XzWfce3of5BLApSGz5pBeIU2hQYGC0hpEorqpaHIiS+1sL2VB48VqZ7hTWzsO2XFlWxpOocOokJc+6zQIYUe3w==",
+  "dgSpecHash": "26PFqn0Ly1wZyLzZj/GRYtz6w9ykSReJqnzwrpzSoYpacLUsEYJUSEx1VaS+SLMtxGcv9ZQcDdjBlzjLtUkrjA==",
   "success": true,
-  "projectFilePath": "/app/blazor.csproj",
+  "projectFilePath": "/Users/rain/Desktop/Code/ContainerizingApps_Github/blazor/blazor.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -58,15 +58,13 @@ docker-compose up -d --build flutterweb
 
 http://localhost:8085
 
-blazor (dotnet v6) - not work on docker
+Blazor (dotnet v6) 
 
 ```
 docker-compose up -d --build blazor
 ```
 
 http://localhost:8086
-
-
 
 [testdrivenio/django-on-docker: Dockerizing Django with Postgres, Gunicorn, and Nginx (github.com)](https://github.com/testdrivenio/django-on-docker)
 
