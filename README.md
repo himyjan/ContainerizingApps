@@ -58,13 +58,21 @@ docker-compose up -d --build flutterweb
 
 http://localhost:8085
 
-Blazor (dotnet v6) 
+Blazor Server (dotnet v6) 
 
 ```
-docker-compose up -d --build blazor
+docker-compose up -d --build blazorserver
 ```
 
 http://localhost:8086
+
+Blazor WebAssembly (dotnet v6) - not work
+
+```
+docker-compose up -d --build blazorwasm
+```
+
+http://localhost:8087
 
 [testdrivenio/django-on-docker: Dockerizing Django with Postgres, Gunicorn, and Nginx (github.com)](https://github.com/testdrivenio/django-on-docker)
 
@@ -74,7 +82,7 @@ Django v4
 docker-compose up -d --build djangoweb
 ```
 
-http://localhost:8087
+http://localhost:8088
 
 or add nginx file service
 
@@ -88,4 +96,4 @@ FastAPI
 docker-compose up -d --build fastapi
 ```
 
-http://localhost:8088
+http://localhost:8089

@@ -59,16 +59,30 @@ services:
     ports:
       - 8085:3000
 
-  blazor:
-    image: ${DOCKER_REGISTRY-}blazor
+  blazorserver:
+    image: ${DOCKER_REGISTRY-}blazorserver
     build:
       context: "."
-      dockerfile: ./blazor/Dockerfile
+      dockerfile: ./blazorserver/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:8086
     ports:
       - 8086:8086
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+  
+  blazorwasm:
+    image: ${DOCKER_REGISTRY-}blazorwasm
+    build:
+      context: "."
+      dockerfile: ./blazorwasm/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:8087
+    ports:
+      - 8087:8087
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
@@ -156,7 +170,7 @@ services:
     expose:
       - 8001
     ports:
-      - 8088:8001
+      - 8089:8001
 
   djangoweb:
     build: ./django
@@ -167,7 +181,7 @@ services:
     expose:
       - 8000
     ports:
-      - 8087:8000
+      - 8088:8000
     env_file:
       - ./django/.env.prod
     depends_on: 
