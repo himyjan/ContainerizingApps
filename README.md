@@ -81,3 +81,11 @@ or add nginx file service
 ```
 docker-compose up -d --build nginx
 ```
+
+FastAPI
+
+```
+docker-compose up -d --build fastapi
+```
+
+http://localhost:8088
