@@ -87,6 +87,25 @@ services:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
 
+  mssqldb:
+    container_name: mssql
+    hostname: mssql
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong_Password
+      - MSSQL_PID=Express
+  mssqlsetup:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    depends_on:
+      - mssqldb
+    restart: "no"
+    entrypoint: [ "bash", "-c", "sleep 10 && /init.sh"]
+    volumes:
+      - ./init.sh:/init.sh
+      - ./init.sql:/init.sql
 
 #######################################
   phpweb:
@@ -219,3 +238,5 @@ networks:
   dhbw:
     name: "${COMPOSE_PROJECT_NAME:-dhbw}"
     external: false
+  mynetwork:
+    driver: bridge
