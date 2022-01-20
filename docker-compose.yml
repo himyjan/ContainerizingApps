@@ -115,21 +115,21 @@ services:
 
 #######################################
   phpweb:
-      image: nginx:latest
-      restart: unless-stopped
-      ports:
-        - "${HTTP_PORT:-8080}:80"
-        - "${HTTPS_PORT:-8443}:443"
-      volumes:
-        - ./xampp/build/nginx:/etc/nginx/conf.d
-        - ${PWD}/xampp/build/index.php:/application/index.php
-        - ./xampp/php:/application/php
-      networks:
-        dhbw:
-          aliases:
-            - dhbw.test
-      depends_on:
-        - php
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+      - "${HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./xampp/build/nginx:/etc/nginx/conf.d
+      - ${PWD}/xampp/build/index.php:/application/index.php
+      - ./xampp/php:/application/php
+    networks:
+      dhbw:
+        aliases:
+          - dhbw.test
+    depends_on:
+      - php
 
   php:
     build:
