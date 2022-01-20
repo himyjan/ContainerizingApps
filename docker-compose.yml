@@ -90,20 +90,26 @@ services:
   mssqldb:
     container_name: mssql
     hostname: mssql
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    #image: mcr.microsoft.com/mssql/server:2019-latest
+    #image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
+    build:
+      context: ./mssqldb
+      dockerfile: Dockerfile
+    restart: always
     ports:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=yourStrong_Password
-      - MSSQL_PID=Express
+      - SA_PASSWORD=YourStrong!Passw0rd
   mssqlsetup:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    #image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
     depends_on:
       - mssqldb
     restart: "no"
     entrypoint: [ "bash", "-c", "sleep 10 && /init.sh"]
     volumes:
+      - ./mynetwork:/var/opt/mssql
       - ./init.sh:/init.sh
       - ./init.sql:/init.sql
 
