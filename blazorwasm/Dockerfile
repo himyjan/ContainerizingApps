@@ -16,22 +16,20 @@ RUN dotnet build "blazorwasm.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "blazorwasm.csproj" -c Release -o /app/publish
 
-FROM publish
-RUN dotnet dev-certs https --clean
-RUN dotnet dev-certs https --verbose
-WORKDIR /var/www
-COPY --from=publish /app/publish /var/www
-EXPOSE 8087
+# FROM publish
+# RUN dotnet dev-certs https --clean
+# RUN dotnet dev-certs https --verbose
+# WORKDIR /var/www
+# COPY --from=publish /app/publish /var/www
+# EXPOSE 8087
 # ENTRYPOINT ["dotnet", "/var/www/blazorwasm.dll"]
 
 FROM nginx:latest
-# WORKDIR /var/www
-# COPY --from=publish /app/publish /var/www
-# COPY /blazorwasm/nginx.conf /etc/nginx/nginx.conf
-# EXPOSE 5000
-ENTRYPOINT ["nginx","-g","daemon off;"]
-
-
+WORKDIR /var/www
+COPY --from=publish /app/publish/wwwroot .
+COPY /blazorwasm/nginx.conf /etc/nginx/nginx.conf
+# EXPOSE 8087
+# ENTRYPOINT ["nginx","-g","daemon off;"]
 
 # # FROM publish
 # WORKDIR /app
