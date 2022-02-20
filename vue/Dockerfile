@@ -12,7 +12,7 @@
 
 
 # Stage 1 - Build React App inside temporary Node container
-FROM node:carbon-alpine as builder
+FROM node:alpine as builder
 
 WORKDIR /usr/src/app
 COPY . ./
