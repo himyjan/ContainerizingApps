@@ -1,4 +1,4 @@
-FROM node:current-alpine3.14
+FROM node:alpine
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY . .

@@ -1,5 +1,5 @@
 # Stage 1 - Build React App inside temporary Node container
-FROM node:current-alpine3.14 as react-build
+FROM node:alpine as react-build
 
 WORKDIR /usr/src/app
 COPY . ./
