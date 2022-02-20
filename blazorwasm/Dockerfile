@@ -28,7 +28,7 @@ FROM nginx:latest
 WORKDIR /var/www
 COPY --from=publish /app/publish/wwwroot .
 COPY /blazorwasm/nginx.conf /etc/nginx/nginx.conf
-# EXPOSE 8087
+EXPOSE 8087
 # ENTRYPOINT ["nginx","-g","daemon off;"]
 
 # # FROM publish
