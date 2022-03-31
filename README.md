@@ -97,3 +97,8 @@ docker-compose up -d --build fastapi
 ```
 
 http://localhost:8089
+
+
+vue create vue-app
+ng new angular-app
+npx create-react-app react-app
