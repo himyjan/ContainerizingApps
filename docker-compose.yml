@@ -1,0 +1,248 @@
+version: "3.4"
+
+services:
+  node:
+    build:
+      context: "node/"
+    image: node-app
+    env_file:
+      - "./node/.env"
+    ports:
+      - 8090:3000
+
+  angular:
+    build:
+      context: "angular/"
+    image: angular-app
+    env_file:
+      - "./angular/.env"
+    ports:
+      - 8082:3000
+
+  react:
+    build:
+      context: "react/"
+    image: react-app
+    env_file:
+      - "./react/.env"
+    ports:
+      - 8083:3000
+
+  vue:
+    build:
+      context: "vue/"
+    image: vue-app
+    env_file:
+      - "./vue/.env"
+    ports:
+      - 8084:3000
+
+  dotnetapp:
+    build:
+      context: "dotnetapp/"
+    image: dotnetapp
+  
+  aspnetapp:
+    build:
+      context: "aspnetapp/"
+    image: aspnetapp
+  
+  complexapp:
+    build:
+      context: "complexapp/"
+    image: complexapp
+
+  flutterweb:
+    build:
+      context: "flutterweb/"
+    image: flutterweb
+    ports:
+      - 8085:3000
+
+  blazorserver:
+    image: ${DOCKER_REGISTRY-}blazorserver
+    build:
+      context: "."
+      dockerfile: ./blazorserver/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:8086
+    ports:
+      - 8086:8086
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+  
+  blazorwasm:
+    image: ${DOCKER_REGISTRY-}blazorwasm
+    build:
+      context: "."
+      dockerfile: ./blazorwasm/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:8087
+    ports:
+      - 8087:8087
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+
+  mssqldb:
+    container_name: mssql
+    hostname: mssql
+    #image: mcr.microsoft.com/mssql/server:2019-latest
+    #image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
+    build:
+      context: ./mssqldb
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+  mssqlsetup:
+    #image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
+    depends_on:
+      - mssqldb
+    restart: "no"
+    entrypoint: [ "bash", "-c", "sleep 10 && /init.sh"]
+    volumes:
+      - ./mynetwork:/var/opt/mssql
+      - ./init.sh:/init.sh
+      - ./init.sql:/init.sql
+
+#######################################
+  phpweb:
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+      - "${HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./xampp/build/nginx:/etc/nginx/conf.d
+      - ${PWD}/xampp/build/index.php:/application/index.php
+      - ./xampp/php:/application/php
+    networks:
+      dhbw:
+        aliases:
+          - dhbw.test
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./xampp/build
+      dockerfile: php.dockerfile
+    environment:
+      XDEBUG_CONFIG: remote_host=${XDEBUG_REMOTE_HOST:-host.docker.internal}
+      PHP_IDE_CONFIG: "serverName=docker"
+      WEBMAIL_PORT: "${WEBMAIL_PORT:-8025}"
+      PHPMYADMIN_PORT: "${PHPMYADMIN_PORT:-8081}"
+    volumes:
+      - ${PWD}/xampp/build/index.php:/application/index.php
+      - ./xampp/php:/application/php
+    networks:
+      - dhbw
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    restart: unless-stopped
+    ports:
+      - "${DB_PORT:-8306}:3306"
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./xampp/data/mysql:/var/lib/mysql
+      - ./xampp/log/mysql:/var/log/mysql
+    networks:
+      - dhbw
+
+
+  mail:
+    image: mailhog/mailhog:latest
+    restart: unless-stopped
+    ports:
+      - "${WEBMAIL_PORT:-8025}:8025"
+    networks:
+      - dhbw
+
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_USER=root
+    networks:
+      - dhbw
+    depends_on:
+      - mariadb
+
+########################################### 1
+  fastapi:
+    build: ./fastapi
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8001
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    expose:
+      - 8001
+    ports:
+      - 8089:8001
+
+  djangoweb:
+    build: ./django
+    command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    expose:
+      - 8000
+    ports:
+      - 8088:8000
+    env_file:
+      - ./django/.env.prod
+    depends_on: 
+      - postgresdb
+
+  postgresdb:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./django/.env.prod.db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=django_dev
+
+  nginx:
+      build: ./django/nginx
+      ports:
+      - 80:8000
+      volumes:
+      - ./django/nginx:/etc/nginx/conf.d
+      - static_volume:/home/app/djangoweb/staticfiles
+      - media_volume:/home/app/djangoweb/mediafiles
+      depends_on: 
+      - djangoweb
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+########################################### 1
+
+networks:
+  dhbw:
+    name: "${COMPOSE_PROJECT_NAME:-dhbw}"
+    external: false
+  mynetwork:
+    driver: bridge
