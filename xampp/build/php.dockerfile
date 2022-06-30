@@ -5,34 +5,34 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 
 RUN     apt-get update \
     &&  apt-get install --no-install-recommends -y \
-        git \
-        mariadb-client \
-        mycli \
-        tar \
-        vim \
-        zip \
+    git \
+    mariadb-client \
+    mycli \
+    tar \
+    vim \
+    zip \
     &&  install-php-extensions \
-        @composer \
-        imap \
-        gd \
-        intl  \
-        opcache \
-        pcntl \
-        pdo_mysql \
-        sockets \
-        zip \
-# \
-# DEVELOPMENT \
-# \
-        apcu \
-        xdebug \
-# \
-# OPTIONAL \
-# \
-        bcmath \
-        bz2 \
-        calendar \
-        exif \
+    @composer \
+    imap \
+    gd \
+    intl  \
+    opcache \
+    pcntl \
+    pdo_mysql \
+    sockets \
+    zip \
+    # \
+    # DEVELOPMENT \
+    # \
+    apcu \
+    xdebug \
+    # \
+    # OPTIONAL \
+    # \
+    bcmath \
+    bz2 \
+    calendar \
+    exif \
     &&  apt-get autoremove -y \
     &&  apt-get clean \
     &&  rm -rf /var/lib/apt/lists/*
@@ -45,10 +45,10 @@ RUN     mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     &&  echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 COPY my.cnf /root/.my.cnf
-RUN		chmod 0644 /root/.my.cnf
+RUN	chmod 0644 /root/.my.cnf
 
 # expose FPM
-EXPOSE  9000
+EXPOSE 9000
 
 WORKDIR /application
 
