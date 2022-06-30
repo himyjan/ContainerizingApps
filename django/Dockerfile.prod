@@ -3,7 +3,7 @@
 ###########
 
 # pull official base image
-FROM python:alpine3.14 as builder
+FROM python:alpine as builder
 
 # set work directory
 WORKDIR /usr/src/app
@@ -14,7 +14,7 @@ ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev
+    && apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc-dev mariadb-dev postgresql-dev
 
 # lint
 RUN pip install --upgrade pip
@@ -32,7 +32,7 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requir
 #########
 
 # pull official base image
-FROM python:alpine3.14
+FROM python:alpine
 
 # create directory for the app user
 RUN mkdir -p /home/app
@@ -69,4 +69,4 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # run entrypoint.prod.sh
-ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]
+ENTRYPOINT ["sh", "/home/app/web/entrypoint.prod.sh"]
