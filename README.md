@@ -101,3 +101,4 @@ docker-compose up -d --build fastapi
 vue create vue-app
 ng new angular-app
 npx create-react-app react-app
+npx create-react-app react-app --template typescript
