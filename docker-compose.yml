@@ -28,6 +28,15 @@ services:
     ports:
       - 8083:3000
 
+  reacttypescript:
+    build:
+      context: "reacttypescript/"
+    image: reacttypescript-app
+    env_file:
+      - "./reacttypescript/.env"
+    ports:
+      - 8083:3000
+
   vue:
     build:
       context: "vue/"
@@ -41,12 +50,12 @@ services:
     build:
       context: "dotnetapp/"
     image: dotnetapp
-  
+
   aspnetapp:
     build:
       context: "aspnetapp/"
     image: aspnetapp
-  
+
   complexapp:
     build:
       context: "complexapp/"
@@ -72,7 +81,7 @@ services:
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-  
+
   blazorwasm:
     image: ${DOCKER_REGISTRY-}blazorwasm
     build:
@@ -209,7 +218,7 @@ services:
       - 8088:8000
     env_file:
       - ./django/.env.prod
-    depends_on: 
+    depends_on:
       - postgresdb
 
   postgresdb:
@@ -231,7 +240,7 @@ services:
       - ./django/nginx:/etc/nginx/conf.d
       - static_volume:/home/app/djangoweb/staticfiles
       - media_volume:/home/app/djangoweb/mediafiles
-      depends_on: 
+      depends_on:
       - djangoweb
 
 volumes:
