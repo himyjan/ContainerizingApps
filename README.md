@@ -40,13 +40,45 @@ docker-compose up -d --build react
 
 <http://localhost:8083>
 
+React typescript
+
+```
+docker-compose up -d --build reacttypescript
+```
+
+<http://localhost:8083>
+
+Next
+
+```
+docker-compose up -d --build next
+```
+
+<http://localhost:8083>
+
+Next typescript
+
+```
+docker-compose up -d --build nexttypescript
+```
+
+<http://localhost:8083>
+
 Vue
 
 ```
 docker-compose up -d --build vue
 ```
 
-[http://localhost:8084]()
+<http://localhost:8084>
+
+Vue typescript
+
+```
+docker-compose up -d --build vuetypescript
+```
+
+<http://localhost:8084>
 
 [Container size too large · Issue #1 · jared-nelsen/flutter_web_docker_example · GitHub](https://github.com/jared-nelsen/flutter_web_docker_example/issues/1#issuecomment-986097288)
 
@@ -98,7 +130,65 @@ docker-compose up -d --build fastapi
 
 <http://localhost:8089>
 
+---
+
+
+```
+bun create
+```
+```
+bun create vite@latest react-app --template react
+```
+```
+bun create vite@latest react-app --template react-ts
+```
+```
+bun create vite@latest vue-app --template vue
+```
+```
+bun create vite@latest vue-app --template vue-ts
+```
+```
+npx create-nx-workspace --preset=empty
+bun install @nxext/angular --save
+```
+```
+bun create vite@latest preact-app --template preact
+```
+```
+bun create vite@latest preact-app --template preact-ts
+```
+```
+bun create vite@latest lit-app --template lit
+```
+```
+bun create vite@latest lit-app --template lit-ts
+```
+```
+bun create vite@latest vanilla-app --template vanilla
+```
+```
+bun create vite@latest vanilla-app --template vanilla-ts
+```
+```
+bun create vite@latest svelte-app --template svelte
+```
+```
+bun create vite@latest svelte-app --template svelte-ts
+```
+---
+```
 vue create vue-app
+```
+```
 ng new angular-app
+```
+```
 npx create-react-app react-app
+```
+```
 npx create-react-app react-app --template typescript
+```
+```
+npx create-t3-app@latest
+```
