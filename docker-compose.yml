@@ -35,8 +35,25 @@ services:
     env_file:
       - "./reacttypescript/.env"
     ports:
-      - 8083:3000
+      - 8084:3000
 
+  next:
+    build:
+      context: "next/"
+    image: next-app
+    env_file:
+      - "./next/.env"
+    ports:
+      - 8085:3000
+
+  nexttypescript:
+    build:
+      context: "nexttypescript/"
+    image: nexttypescript-app
+    env_file:
+      - "./nexttypescript/.env"
+    ports:
+      - 8086:3000
   vue:
     build:
       context: "vue/"
@@ -44,7 +61,16 @@ services:
     env_file:
       - "./vue/.env"
     ports:
-      - 8084:3000
+      - 8087:3000
+
+  vuetypescript:
+    build:
+      context: "vuetypescript/"
+    image: vue-app
+    env_file:
+      - "./vuetypescript/.env"
+    ports:
+      - 8088:3000
 
   dotnetapp:
     build:
@@ -66,7 +92,7 @@ services:
       context: "flutterweb/"
     image: flutterweb
     ports:
-      - 8085:3000
+      - 8089:3000
 
   blazorserver:
     image: ${DOCKER_REGISTRY-}blazorserver
@@ -75,9 +101,9 @@ services:
       dockerfile: ./blazorserver/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:8086
+      - ASPNETCORE_URLS=https://+:8092
     ports:
-      - 8086:8086
+      - 8092:8092
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
@@ -89,9 +115,9 @@ services:
       dockerfile: ./blazorwasm/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:8087
+      - ASPNETCORE_URLS=https://+:8093
     ports:
-      - 8087:8087
+      - 8093:8093
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
@@ -204,7 +230,7 @@ services:
     expose:
       - 8001
     ports:
-      - 8089:8001
+      - 8094:8001
 
   djangoweb:
     build: ./django
@@ -215,7 +241,7 @@ services:
     expose:
       - 8000
     ports:
-      - 8088:8000
+      - 8095:8000
     env_file:
       - ./django/.env.prod
     depends_on:
