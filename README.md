@@ -190,5 +190,6 @@ npm create create-react-app react-app
 npm create create-react-app react-app --template typescript
 ```
 ```
-npm create create-t3-app@latest
+npx create-t3-app@latest
+npm i --package-lock-only
 ```
