@@ -114,3 +114,9 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb

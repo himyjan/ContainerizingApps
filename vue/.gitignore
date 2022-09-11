@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb
