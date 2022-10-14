@@ -1,13 +1,13 @@
 FROM ubuntu:focal AS builder
 
-# Setup 
+# Setup
 RUN apt-get update && apt-get install -y unzip xz-utils git openssh-client curl && apt-get upgrade -y && rm -rf /var/cache/apt
 
 # Install Flutter
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
-# RUN flutter channel stable
-RUN flutter channel beta
+RUN flutter channel stable
+# RUN flutter channel beta
 RUN flutter upgrade
 RUN flutter config --enable-web
 RUN flutter doctor -v
@@ -24,7 +24,7 @@ FROM alpine:latest
 RUN apk update \
     && apk upgrade \
     && apk add --update lighttpd \
-    && rm -rf /var/cache/apk/* 
+    && rm -rf /var/cache/apk/*
 
 # Deploy with NGNIX
 FROM nginx:latest

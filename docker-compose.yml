@@ -1,4 +1,4 @@
-version: "3.4"
+version: '3.4'
 
 services:
   node:
@@ -12,9 +12,24 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./node/.env"
+      - './node/.env'
     ports:
       - 8090:3000
+
+  astro:
+    container_name: astro
+    build:
+      context: ./astro/
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app
+    volumes:
+      - ./astro:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    env_file:
+      - './astro/.env'
+    ports:
+      - 8089:3000
 
   angular:
     container_name: angular
@@ -27,7 +42,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./angular/.env"
+      - './angular/.env'
     ports:
       - 8082:3000
 
@@ -42,7 +57,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./react/.env"
+      - './react/.env'
     ports:
       - 8083:3000
 
@@ -57,7 +72,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./reacttypescript/.env"
+      - './reacttypescript/.env'
     ports:
       - 8084:3000
 
@@ -72,7 +87,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./next/.env"
+      - './next/.env'
     ports:
       - 8085:3000
 
@@ -87,7 +102,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./nexttypescript/.env"
+      - './nexttypescript/.env'
     ports:
       - 8086:3000
   vue:
@@ -101,7 +116,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./vue/.env"
+      - './vue/.env'
     ports:
       - 8087:3000
 
@@ -116,7 +131,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     env_file:
-      - "./vuetypescript/.env"
+      - './vuetypescript/.env'
     ports:
       - 8088:3000
 
@@ -164,13 +179,13 @@ services:
       - ./shared:/shared
       - /usr/src/app
     ports:
-      - 8089:3000
+      - 8096:3000
 
   blazorserver:
     container_name: blazorserver
     image: ${DOCKER_REGISTRY-}blazorserver
     build:
-      context: "."
+      context: '.'
       dockerfile: ./blazorserver/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -185,7 +200,7 @@ services:
     container_name: blazorwasm
     image: ${DOCKER_REGISTRY-}blazorwasm
     build:
-      context: "."
+      context: '.'
       dockerfile: ./blazorwasm/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -216,8 +231,8 @@ services:
     image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
     depends_on:
       - mssqldb
-    restart: "no"
-    entrypoint: [ "bash", "-c", "sleep 10 && /init.sh" ]
+    restart: 'no'
+    entrypoint: ['bash', '-c', 'sleep 10 && /init.sh']
     volumes:
       - ./mynetwork:/var/opt/mssql
       - ./init.sh:/init.sh
@@ -229,8 +244,8 @@ services:
     image: nginx:latest
     restart: unless-stopped
     ports:
-      - "${HTTP_PORT:-8080}:80"
-      - "${HTTPS_PORT:-8443}:443"
+      - '${HTTP_PORT:-8080}:80'
+      - '${HTTPS_PORT:-8443}:443'
     volumes:
       - ./xampp/build/nginx:/etc/nginx/conf.d
       - ${PWD}/xampp/build/index.php:/application/index.php
@@ -249,9 +264,9 @@ services:
       dockerfile: php.dockerfile
     environment:
       XDEBUG_CONFIG: remote_host=${XDEBUG_REMOTE_HOST:-host.docker.internal}
-      PHP_IDE_CONFIG: "serverName=docker"
-      WEBMAIL_PORT: "${WEBMAIL_PORT:-8025}"
-      PHPMYADMIN_PORT: "${PHPMYADMIN_PORT:-8081}"
+      PHP_IDE_CONFIG: 'serverName=docker'
+      WEBMAIL_PORT: '${WEBMAIL_PORT:-8025}'
+      PHPMYADMIN_PORT: '${PHPMYADMIN_PORT:-8081}'
     volumes:
       - ${PWD}/xampp/build/index.php:/application/index.php
       - ./xampp/php:/application/php
@@ -265,7 +280,7 @@ services:
     image: mariadb:latest
     restart: unless-stopped
     ports:
-      - "${DB_PORT:-8306}:3306"
+      - '${DB_PORT:-8306}:3306'
     environment:
       - MYSQL_USER=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
@@ -280,7 +295,7 @@ services:
     image: mailhog/mailhog:latest
     restart: unless-stopped
     ports:
-      - "${WEBMAIL_PORT:-8025}:8025"
+      - '${WEBMAIL_PORT:-8025}:8025'
     networks:
       - dhbw
 
@@ -289,7 +304,7 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     restart: unless-stopped
     ports:
-      - "${PHPMYADMIN_PORT:-8081}:80"
+      - '${PHPMYADMIN_PORT:-8081}:80'
     environment:
       - PMA_HOST=mariadb
       - PMA_USER=root
@@ -359,7 +374,7 @@ volumes:
 
 networks:
   dhbw:
-    name: "${COMPOSE_PROJECT_NAME:-dhbw}"
+    name: '${COMPOSE_PROJECT_NAME:-dhbw}'
     external: false
   mynetwork:
     driver: bridge

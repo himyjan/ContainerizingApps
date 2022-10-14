@@ -80,12 +80,10 @@ docker-compose up -d --build vuetypescript
 
 <http://localhost:8088>
 
-[Container size too large · Issue #1 · jared-nelsen/flutter_web_docker_example · GitHub](https://github.com/jared-nelsen/flutter_web_docker_example/issues/1#issuecomment-986097288)
-
-Flutter Web
+Astro Web
 
 ```
-docker-compose up -d --build flutterweb
+docker-compose up -d --build astro
 ```
 
 <http://localhost:8089>
@@ -129,6 +127,16 @@ or add nginx file service
 ```
 docker-compose up -d --build nginx
 ```
+
+[Container size too large · Issue #1 · jared-nelsen/flutter_web_docker_example · GitHub](https://github.com/jared-nelsen/flutter_web_docker_example/issues/1#issuecomment-986097288)
+
+Flutter Web
+
+```
+docker-compose up -d --build flutterweb
+```
+
+<http://localhost:8096>
 
 ---
 
