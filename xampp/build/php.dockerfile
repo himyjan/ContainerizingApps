@@ -5,34 +5,34 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 
 RUN     apt-get update \
     &&  apt-get install --no-install-recommends -y \
-        git \
-        mariadb-client \
-        mycli \
-        tar \
-        vim \
-        zip \
+    git \
+    mariadb-client \
+    mycli \
+    tar \
+    vim \
+    zip \
     &&  install-php-extensions \
-        @composer \
-        imap \
-        gd \
-        intl  \
-        opcache \
-        pcntl \
-        pdo_mysql \
-        sockets \
-        zip \
-# \
-# DEVELOPMENT \
-# \
-        apcu \
-        xdebug \
-# \
-# OPTIONAL \
-# \
-        bcmath \
-        bz2 \
-        calendar \
-        exif \
+    @composer \
+    imap \
+    gd \
+    intl  \
+    opcache \
+    pcntl \
+    pdo_mysql \
+    sockets \
+    zip \
+    # \
+    # DEVELOPMENT \
+    # \
+    apcu \
+    xdebug \
+    # \
+    # OPTIONAL \
+    # \
+    bcmath \
+    bz2 \
+    calendar \
+    exif \
     &&  apt-get autoremove -y \
     &&  apt-get clean \
     &&  rm -rf /var/lib/apt/lists/*
