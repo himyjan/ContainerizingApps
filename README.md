@@ -1,3 +1,4 @@
+
 # Container Web Apps
 
 [ogmueller/docker-for-students: Docker setup for students to use PHP, NGINX, MariaDB, and more. Kind of an XAMPP replacement. (github.com)](https://github.com/ogmueller/docker-for-students)
@@ -5,7 +6,7 @@
 XAMPP - Docker setup for students to use PHP, NGINX, MariaDB, and WebMail(MailHog)
 
 ```
-docker-compose up -d --build web phpmyadmin mail
+docker-compose up -d --build phpweb phpmyadmin mail
 ```
 
 <http://localhost:8080/> (php)
