@@ -1,19 +1,19 @@
 {
   "private": true,
-  "author":"himyjan <51815522+himyjan@users.noreply.github.com>",
+  "author": "",
   "scripts": {
-    "dev": "max dev",
     "build": "max build",
+    "dev": "max dev",
     "format": "prettier --cache --write .",
-    "prepare": "husky install",
     "postinstall": "max setup",
+    "prepare": "husky install",
     "setup": "max setup",
     "start": "npm run dev"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-components": "^2.3.20",
-    "@umijs/max": "^4.0.25",
+    "@umijs/max": "^4.0.26",
     "antd": "^4.23.6"
   },
   "devDependencies": {
