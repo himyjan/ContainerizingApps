@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "author":"himyjan <51815522+himyjan@users.noreply.github.com>",
+  "scripts": {
+    "dev": "max dev",
+    "build": "max build",
+    "format": "prettier --cache --write .",
+    "prepare": "husky install",
+    "postinstall": "max setup",
+    "setup": "max setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-components": "^2.3.20",
+    "@umijs/max": "^4.0.25",
+    "antd": "^4.23.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.1.1",
+    "prettier-plugin-packagejson": "^2.3.0",
+    "typescript": "^4.8.4"
+  }
+}

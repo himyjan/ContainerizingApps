@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "author":"himyjan <51815522+himyjan@users.noreply.github.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "vue": "^3.2.41",
+    "umi": "^4.0.25"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4",
+    "@umijs/preset-vue": "^4.0.25"
+  }
+}
