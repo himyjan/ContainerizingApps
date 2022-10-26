@@ -72,6 +72,6 @@ staging_autoscaling_desired_capacity = 1
 
 # The deployment bucket name needs to be unique and can only contain lower case
 # letters and dashes (no underscored allowed).
-deployment_bucket_name      = "serverpod-app-deployment-8158525"
-public_storage_bucket_name  = "serverpod-app-public-storage-8158525"
-private_storage_bucket_name = "serverpod-app-private-storage-8158525"
+deployment_bucket_name      = "serverpod-app-deployment-4858410"
+public_storage_bucket_name  = "serverpod-app-public-storage-4858410"
+private_storage_bucket_name = "serverpod-app-private-storage-4858410"
