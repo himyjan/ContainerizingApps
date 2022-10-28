@@ -38,7 +38,7 @@ services:
 
 
   db:
-    image: mariadb:10.9-jammy
+    image: mariadb:latest
     restart: unless-stopped
     ports:
       - "${DB_PORT:-8306}:3306"
