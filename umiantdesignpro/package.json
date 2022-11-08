@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@ant-design/pro-components": "^2.3.27",
-    "@umijs/max": "^4.0.28",
-    "antd": "^4.23.6"
+    "@ant-design/pro-components": "^2.3.30",
+    "@umijs/max": "^4.0.29",
+    "antd": "^4.24.1"
   },
   "devDependencies": {
-    "@types/react": "^18.0.24",
+    "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
-    "husky": "^8.0.1",
+    "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-organize-imports": "^3.1.1",

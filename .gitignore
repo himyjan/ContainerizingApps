@@ -44,3 +44,5 @@ yarn-error.log*
 *-lock.yaml
 *.lock
 *.lockb
+
+.DS_Store

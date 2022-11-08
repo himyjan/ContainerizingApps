@@ -14,26 +14,26 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@angular/animations": "^14.2.8",
-    "@angular/common": "^14.2.8",
-    "@angular/compiler": "^14.2.8",
-    "@angular/core": "^14.2.8",
-    "@angular/forms": "^14.2.8",
-    "@angular/platform-browser": "^14.2.8",
-    "@angular/platform-browser-dynamic": "^14.2.8",
-    "@angular/router": "^14.2.8",
+    "@angular/animations": "^14.2.9",
+    "@angular/common": "^14.2.9",
+    "@angular/compiler": "^14.2.9",
+    "@angular/core": "^14.2.9",
+    "@angular/forms": "^14.2.9",
+    "@angular/platform-browser": "^14.2.9",
+    "@angular/platform-browser-dynamic": "^14.2.9",
+    "@angular/router": "^14.2.9",
     "rxjs": "^7.5.7",
-    "tslib": "^2.4.0",
-    "zone.js": "^0.11.8"
+    "tslib": "^2.4.1",
+    "zone.js": "^0.12.0"
   },
   "devDependencies": {
     "@analogjs/vite-plugin-angular": "latest",
-    "@angular-devkit/build-angular": "^14.2.7",
-    "@angular/cli": "^14.2.7",
-    "@angular/compiler-cli": "^14.2.8",
+    "@angular-devkit/build-angular": "^14.2.8",
+    "@angular/cli": "^14.2.8",
+    "@angular/compiler-cli": "^14.2.9",
     "jsdom": "^20.0.2",
     "typescript": "^4.8.4",
-    "vite": "^3.2.1",
-    "vitest": "^0.24.3"
+    "vite": "^3.2.3",
+    "vitest": "^0.25.1"
   }
 }

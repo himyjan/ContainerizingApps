@@ -13,39 +13,26 @@
         "packagesPath": "/Users/rain/.nuget/packages/",
         "outputPath": "/Users/rain/Desktop/Code/123/blazorserver/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/rain/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
+        "configFilePaths": ["/Users/rain/.nuget/NuGet/NuGet.Config"],
+        "originalTargetFrameworks": ["net7.0"],
         "sources": {
           "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
         "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
+          "warnAsError": ["NU1605"]
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": ["net461", "net462", "net47", "net471", "net472", "net48"],
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
