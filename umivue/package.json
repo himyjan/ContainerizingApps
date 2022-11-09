@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "umi": "^4.0.29",
-    "vue": "^3.2.41"
+    "vue": "^3.2.42"
   },
   "devDependencies": {
     "@umijs/preset-vue": "^4.0.29",
