@@ -71,7 +71,7 @@ The following example demonstrates targeting the `test` stage with the `--target
 ```console
 PS C:\git\dotnet-docker\samples\complexapp> docker build --pull --target test -t complexapp-test .
 Sending build context to Docker daemon  12.81MB
-Step 1/15 : FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+Step 1/15 : FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 6.0: Pulling from dotnet/sdk
 Successfully built f98c5453be3d
 Successfully tagged complexapp-test:latest
@@ -156,10 +156,10 @@ You will see that tests are run while building the image, as you can see in the 
 ```console
 > docker build --pull -t complexapp .
 Sending build context to Docker daemon  12.79MB
-Step 1/24 : FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+Step 1/24 : FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 6.0: Pulling from dotnet/sdk
 Digest: sha256:02606610ffd96978da91adeac1b73af9ac536b85a3034b061d0c7d8d9fcd6790
-Status: Image is up to date for mcr.microsoft.com/dotnet/sdk:6.0
+Status: Image is up to date for mcr.microsoft.com/dotnet/sdk:7.0
  ---> 9817c25953a8
 Step 17/24 : RUN dotnet test --logger:trx
  ---> Running in 4678e2e6456d
