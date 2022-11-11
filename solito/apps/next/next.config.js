@@ -23,7 +23,6 @@ const nextConfig = {
     disableStaticImages: true,
   },
   experimental: {
-    forceSwcTransforms: true,
     swcPlugins: [[require.resolve('./plugins/swc_plugin_reanimated.wasm')]],
   },
 }
