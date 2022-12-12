@@ -3,13 +3,13 @@
   "name": "app",
   "main": "index.ts",
   "dependencies": {
-    "@react-navigation/native": "^6.0.14",
-    "@react-navigation/native-stack": "^6.9.2",
+    "@react-navigation/native": "^6.1.1",
+    "@react-navigation/native-stack": "^6.9.6",
     "dripsy": "^3.8.1",
     "expo-linking": "^3.2.3",
     "moti": "^0.21.0",
     "react-native-reanimated": "^2.13.0",
-    "solito": "^2.0.0-rc.10"
+    "solito": "^2.1.0"
   },
   "sideEffects": false
 }
