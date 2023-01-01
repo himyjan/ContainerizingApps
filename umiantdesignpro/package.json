@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
-    "@ant-design/pro-components": "^2.3.47",
-    "@umijs/max": "^4.0.40",
-    "antd": "^5.1.1"
+    "@ant-design/pro-components": "^2.3.49",
+    "@umijs/max": "^4.0.41",
+    "antd": "^5.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
