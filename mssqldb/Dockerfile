@@ -20,7 +20,7 @@
 
 
 
-# FROM mcr.microsoft.com/mssql/server:2019-latest
+# FROM mcr.microsoft.com/mssql/server:2022-latest
 #For ARM architecture M1
 FROM mcr.microsoft.com/azure-sql-edge:latest
 

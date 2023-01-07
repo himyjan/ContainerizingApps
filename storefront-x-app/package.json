@@ -14,12 +14,12 @@
     "serve": "sfx serve"
   },
   "dependencies": {
-    "@storefront-x/core": "^1.4.2"
+    "@storefront-x/core": "^1.5.1"
   },
   "devDependencies": {
-    "@storefront-x/base": "^1.4.2",
-    "@storefront-x/vue": "^1.4.2",
-    "@storefront-x/vue-router": "^1.4.2",
-    "@storefront-x/vue-head": "^1.4.2"
+    "@storefront-x/base": "^1.5.1",
+    "@storefront-x/vue": "^1.5.1",
+    "@storefront-x/vue-router": "^1.5.1",
+    "@storefront-x/vue-head": "^1.5.1"
   }
 }

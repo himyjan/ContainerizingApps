@@ -214,7 +214,7 @@ services:
   mssqldb:
     container_name: mssql
     hostname: mssql
-    #image: mcr.microsoft.com/mssql/server:2019-latest
+    #image: mcr.microsoft.com/mssql/server:2022-latest
     #image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
     build:
       context: ./mssqldb
@@ -227,7 +227,7 @@ services:
       - SA_PASSWORD=YourStrong!Passw0rd
   mssqlsetup:
     container_name: mssqlsetup
-    #image: mcr.microsoft.com/mssql/server:2019-latest
+    #image: mcr.microsoft.com/mssql/server:2022-latest
     image: mcr.microsoft.com/azure-sql-edge:latest #For ARM architecture M1
     depends_on:
       - mssqldb
