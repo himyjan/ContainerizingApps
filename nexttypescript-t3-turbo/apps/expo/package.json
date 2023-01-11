@@ -7,13 +7,13 @@
     "dev": "expo start --ios",
     "dev:android": "expo start --android",
     "dev:ios": "expo start --ios",
-    "lint": "eslint . --ext ts,tsx",
+    "lint": "eslint",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@acme/api": "*",
     "@acme/tailwind-config": "*",
-    "@shopify/flash-list": "^1.4.0",
+    "@shopify/flash-list": "1.4.0",
     "@tanstack/react-query": "^4.22.0",
     "@trpc/client": "^10.8.2",
     "@trpc/react-query": "^10.8.2",
@@ -23,7 +23,7 @@
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.0-rc.0",
+    "react-native": "0.70.6",
     "react-native-safe-area-context": "4.4.1"
   },
   "devDependencies": {
