@@ -5,7 +5,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
-    "dripsy": "^3.9.0",
+    "dripsy": "^3.10.0",
     "expo-linking": "^3.3.0",
     "moti": "latest",
     "react-native-reanimated": "^3.0.0-rc.10",
