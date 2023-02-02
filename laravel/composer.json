@@ -10,14 +10,14 @@
     "require": {
         "php": "^8.2.1",
         "guzzlehttp/guzzle": "^7.5.0",
-        "laravel/framework": "^9.48.0",
+        "laravel/framework": "^9.50.1",
         "laravel/sanctum": "^3.2.1",
         "laravel/tinker": "^2.8.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.21.0",
-        "laravel/pint": "^1.4.0",
-        "laravel/sail": "^1.18.1",
+        "laravel/pint": "^1.4.1",
+        "laravel/sail": "^1.19.0",
         "mockery/mockery": "^1.5.1",
         "nunomaduro/collision": "^6.4.0",
         "phpunit/phpunit": "^9.5.28",
