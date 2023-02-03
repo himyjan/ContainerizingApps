@@ -7,14 +7,14 @@
   },
   "type": "module",
   "devDependencies": {
-    "solid-start-node": "^0.2.18",
+    "solid-start-node": "^0.2.19",
     "vite": "^4.1.1"
   },
   "dependencies": {
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.0",
     "solid-js": "^1.6.10",
-    "solid-start": "^0.2.18",
+    "solid-start": "^0.2.19",
     "undici": "^5.16.0"
   },
   "engines": {
