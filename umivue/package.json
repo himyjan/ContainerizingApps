@@ -8,11 +8,11 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "umi": "^4.0.48",
+    "umi": "^4.0.51",
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@umijs/preset-vue": "^4.0.48",
+    "@umijs/preset-vue": "^4.0.51",
     "typescript": "^4.9.5"
   }
 }
