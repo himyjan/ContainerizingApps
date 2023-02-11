@@ -22,6 +22,10 @@ const nextConfig = {
   images: {
     disableStaticImages: true,
   },
+  transpilePackages: [
+    'react-native',
+    'expo',
+  ],
   experimental: {
     forceSwcTransforms: true,
     swcPlugins: [[require.resolve('./plugins/swc_plugin_reanimated.wasm')]],
