@@ -1,6 +1,4 @@
 const { withExpo } = require('@expo/next-adapter')
-const withFonts = require('next-fonts')
-const withImages = require('next-images')
 const withPlugins = require('next-compose-plugins')
 const withTM = require('next-transpile-modules')([
   'solito',
@@ -19,9 +17,6 @@ const nextConfig = {
   // once that gets fixed, set this back to true
   reactStrictMode: false,
   webpack5: true,
-  images: {
-    disableStaticImages: true,
-  },
   transpilePackages: [
     'react-native',
     'expo',
@@ -35,8 +30,6 @@ const nextConfig = {
 module.exports = withPlugins(
   [
     withTM,
-    withFonts,
-    withImages,
     [
       withExpo,
       {
