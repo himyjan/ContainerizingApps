@@ -1,6 +1,6 @@
 # create-t3-turbo
 
-<img width="1758" alt="turbo2" src="https://user-images.githubusercontent.com/51714798/202427720-4ec5f285-41a5-4fed-a52f-20b89c5bc1b3.png">
+<img width="1758" alt="turbo2" src="https://user-images.githubusercontent.com/51714798/213819392-33e50db9-3e38-4c51-9a22-03abe5e48f3d.png">
 
 ## About
 
@@ -16,14 +16,15 @@ It uses [Turborepo](https://turborepo.org/) and contains:
   └─ Recommended extensions and settings for VSCode users
 apps
   ├─ expo
-  |   ├─ Expo SDK 46
+  |   ├─ Expo SDK 48
   |   ├─ React Native using React 18
+  |   ├─ Navigation using Expo Router
   |   ├─ Tailwind using Nativewind
   |   └─ Typesafe API calls using tRPC
   └─ next.js
       ├─ Next.js 13
       ├─ React 18
-      ├─ TailwindCSS
+      ├─ Tailwind CSS
       └─ E2E Typesafe API Server & Client
 packages
  ├─ api
