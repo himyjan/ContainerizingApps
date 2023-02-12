@@ -2,7 +2,7 @@ import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { AppRegistry } from 'react-native';
 
-export const style = `
+export const style: string = `
 /**
  * Building on the RNWeb reset:
  * https://github.com/necolas/react-native-web/blob/master/packages/react-native-web/src/exports/StyleSheet/initialRules.js
@@ -42,12 +42,15 @@ body {
 }
 `;
 
-export class MyDocument extends Document {
-  static async getInitialProps({ renderPage }) {
-    AppRegistry.registerComponent('Main', () => Main);
-    const { getStyleElement } = AppRegistry.getApplication('Main');
+export default class MyDocument extends Document {
+  static async getInitialProps({ renderPage }: { renderPage: any }) {
+    AppRegistry.registerComponent('main', () => Main);
+    const { getStyleElement } = AppRegistry.getApplication('main');
     const page = await renderPage();
-    const styles = [<style dangerouslySetInnerHTML={{ __html: style }} />, getStyleElement()];
+    const styles = [
+      <style key="react-native-style" dangerouslySetInnerHTML={{ __html: style }} />,
+      getStyleElement(),
+    ];
     return { ...page, styles: Children.toArray(styles) };
   }
 
@@ -65,5 +68,3 @@ export class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;
