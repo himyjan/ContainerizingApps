@@ -1,5 +1,5 @@
-import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
-import * as React from 'react';
+import { Children } from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { AppRegistry } from 'react-native';
 
 export const style = `
@@ -42,15 +42,15 @@ body {
 }
 `;
 
-export async function getInitialProps({ renderPage }) {
-  AppRegistry.registerComponent('Main', () => Main);
-  const { getStyleElement } = AppRegistry.getApplication('Main');
-  const page = await renderPage();
-  const styles = [<style dangerouslySetInnerHTML={{ __html: style }} />, getStyleElement()];
-  return { ...page, styles: React.Children.toArray(styles) };
-}
+export class MyDocument extends Document {
+  static async getInitialProps({ renderPage }) {
+    AppRegistry.registerComponent('Main', () => Main);
+    const { getStyleElement } = AppRegistry.getApplication('Main');
+    const page = await renderPage();
+    const styles = [<style dangerouslySetInnerHTML={{ __html: style }} />, getStyleElement()];
+    return { ...page, styles: Children.toArray(styles) };
+  }
 
-export class Document extends NextDocument {
   render() {
     return (
       <Html>
@@ -66,6 +66,4 @@ export class Document extends NextDocument {
   }
 }
 
-Document.getInitialProps = getInitialProps;
-
-export default Document;
+export default MyDocument;
