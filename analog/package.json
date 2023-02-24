@@ -30,7 +30,7 @@
   "devDependencies": {
     "@analogjs/platform": "latest",
     "@angular-devkit/build-angular": "^15.1.5",
-    "@angular/cli": "~15.1.5",
+    "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "^15.1.4",
     "@nrwl/vite": "^15.6.3",
     "jsdom": "^21.1.0",
