@@ -13,12 +13,6 @@ jobs:
 
     if: github.actor == 'dependabot[bot]' || github.actor == 'github-actions[bot]' || github.actor == 'renovate[bot]'
     steps:
-      - name: Dependabot metadata
-        if: github.actor == 'dependabot[bot]' || github.actor == 'github-actions[bot]'
-        id: metadata
-        uses: dependabot/fetch-metadata@v1.3.6
-        with:
-            github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
         # Automatically merge semver-patch and semver-minor PRs
         if: "${{ steps.metadata.outputs.update-type ==
