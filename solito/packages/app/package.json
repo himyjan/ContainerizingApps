@@ -9,7 +9,7 @@
     "expo-linking": "^4.0.0",
     "moti": "latest",
     "react-native-reanimated": "3.0.2",
-    "solito": "^2.3.0"
+    "solito": "^3.0.0"
   },
   "sideEffects": false
 }
