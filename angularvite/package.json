@@ -20,7 +20,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "vite-plugin-ssr": "^0.4.87",
-    "zone.js": "^0.12.0"
+    "zone.js": "^0.13.0"
   },
   "devDependencies": {
     "@nitedani/vite-plugin-angular": "latest",
