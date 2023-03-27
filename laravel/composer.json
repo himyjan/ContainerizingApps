@@ -10,17 +10,17 @@
     "require": {
         "php": "^8.2.3",
         "guzzlehttp/guzzle": "^7.5.0",
-        "laravel/framework": "^9.52.4",
+        "laravel/framework": "^10.4.1",
         "laravel/sanctum": "^3.2.1",
         "laravel/tinker": "^2.8.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.21.0",
-        "laravel/pint": "^1.6.0",
-        "laravel/sail": "^1.21.0",
+        "laravel/pint": "^1.7.0",
+        "laravel/sail": "^1.21.2",
         "mockery/mockery": "^1.5.1",
-        "nunomaduro/collision": "^7.0.5",
-        "phpunit/phpunit": "^10.0.11",
+        "nunomaduro/collision": "^7.3.3",
+        "phpunit/phpunit": "^10.0.18",
         "spatie/laravel-ignition": "^1.6.4"
     },
     "autoload": {

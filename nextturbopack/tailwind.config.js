@@ -1,14 +1,26 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
-    './page/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
     './ui/**/*.{js,ts,jsx,tsx}',
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  darkMode: 'class',
   theme: {
     extend: {
+      // fontFamily: {
+      //   sans: ['var(--primary-font)'],
+      // },
       // https://vercel.com/design/color
       colors: {
+        gray: colors.zinc,
+        'gray-1000': 'rgb(17,17,19)',
+        'gray-1100': 'rgb(10,10,11)',
         vercel: {
           pink: '#FF0080',
           blue: '#0070F3',
@@ -17,13 +29,18 @@ module.exports = {
           violet: '#7928CA',
         },
       },
+      backgroundImage: ({ theme }) => ({
+        'vc-border-gradient': `radial-gradient(at left top, ${theme(
+          'colors.gray.500',
+        )}, 50px, ${theme('colors.gray.800')} 50%)`,
+      }),
       keyframes: ({ theme }) => ({
         rerender: {
           '0%': {
-            'border-color': theme('colors.vercel.pink'),
+            ['border-color']: theme('colors.vercel.pink'),
           },
           '40%': {
-            'border-color': theme('colors.vercel.pink'),
+            ['border-color']: theme('colors.vercel.pink'),
           },
         },
         highlight: {
@@ -34,6 +51,18 @@ module.exports = {
           '40%': {
             background: theme('colors.vercel.pink'),
             color: theme('colors.white'),
+          },
+        },
+        loading: {
+          '0%': {
+            opacity: '.2',
+          },
+          '20%': {
+            opacity: '1',
+            transform: 'translateX(1px)',
+          },
+          to: {
+            opacity: '.2',
           },
         },
         shimmer: {
@@ -60,4 +89,9 @@ module.exports = {
       }),
     },
   },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };

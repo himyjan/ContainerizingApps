@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import styled from 'styled-components';
 
 const HeadContainer = styled.header`
@@ -20,7 +19,7 @@ const Title = styled.span`
   margin: 0 8px;
 `;
 
-const NextJsLogo = (props: React.SVGProps<SVGSVGElement>) => (
+const NextJsLogo = (props: any) => (
   <svg
     version="1.1"
     viewBox="0 0 148 90"

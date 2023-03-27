@@ -18,3 +18,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb

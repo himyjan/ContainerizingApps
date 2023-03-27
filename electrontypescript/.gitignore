@@ -87,3 +87,9 @@ typings/
 
 # Electron-Forge
 out/
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb

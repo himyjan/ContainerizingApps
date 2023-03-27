@@ -1,18 +1,25 @@
 {
-  "name": "solito-blank",
+  "name": "solito-with-tailwind",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "eslint": "^8.34.0",
-    "turbo": "^1.8.2",
-    "typescript": "^5.0.0"
+    "@types/react": "^18.0.29",
+    "@types/react-native": "^0.71.5",
+    "eslint": "^8.36.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5",
+    "turbo": "^1.8.5",
+    "typescript": "^5.0.2"
   },
   "scripts": {
-    "native": "cd apps/expo && expo start",
+    "native": "cd apps/expo && yarn start",
     "web": "cd apps/next && yarn next"
-  }
+  },
+  "engines": {
+    "node": ">=16.0.0 <20.0.0"
+  },
+  "packageManager": "yarn@3.4.1"
 }

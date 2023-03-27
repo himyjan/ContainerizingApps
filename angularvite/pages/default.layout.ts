@@ -60,7 +60,7 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class Layout { }
+export class Layout {}
 
 export default class HomeComponent {
   count = 0;

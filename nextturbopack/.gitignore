@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/.yarn
 
 # testing
 /coverage
@@ -34,11 +35,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-# tailwind
-.turbo
-.vscode
-styles/dist.css
 
 # lock files
 *-lock.json

@@ -46,3 +46,9 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb

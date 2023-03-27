@@ -1,18 +1,37 @@
-import { fetchCategoryBySlug, type PageProps } from '@/lib/getCategories';
-import ClickCounter from '@/ui/ClickCounter';
+import { fetchCategoryBySlug } from '#/lib/get-categories';
+import { ClickCounter } from '#/ui/click-counter';
+import { TabGroup } from '#/ui/tab-group';
+import { notFound } from 'next/navigation';
 
-import { use } from 'react';
-import SubCategoryNav from './SubCategoryNav';
-
-export default function Layout({ children, params }: PageProps) {
-  const category = use(fetchCategoryBySlug(params.categorySlug));
-  if (!category) return null;
+export default async function Layout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { categorySlug: string };
+}) {
+  const category = await fetchCategoryBySlug(params.categorySlug);
+  if (!category) notFound();
   return (
     <div className="space-y-9">
       <div>
-        <div className="flex items-center justify-between">
-          <SubCategoryNav category={category} />
-          <ClickCounter />
+        <div className="flex justify-between">
+          <TabGroup
+            path={`/error-handling/${category.slug}`}
+            items={[
+              {
+                text: 'All',
+              },
+              ...category.items.map((x) => ({
+                text: x.name,
+                slug: x.slug,
+              })),
+            ]}
+          />
+
+          <div className="self-start">
+            <ClickCounter />
+          </div>
         </div>
       </div>
 

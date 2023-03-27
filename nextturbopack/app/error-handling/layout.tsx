@@ -1,16 +1,37 @@
-import { use } from 'react';
-import { fetchCategories } from '@/lib/getCategories';
-import ClickCounter from '@/ui/ClickCounter';
+import { fetchCategories } from '#/lib/get-categories';
+import { ClickCounter } from '#/ui/click-counter';
+import { TabGroup } from '#/ui/tab-group';
 import React from 'react';
-import CategoryNav from './CategoryNav';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const categories = use(fetchCategories());
+export const metadata = {
+  title: 'Error Handling',
+};
+
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const categories = await fetchCategories();
   return (
     <div className="space-y-9">
-      <div className="flex items-center justify-between">
-        <CategoryNav categories={categories} />
-        <ClickCounter />
+      <div className="flex justify-between">
+        <TabGroup
+          path="/error-handling"
+          items={[
+            {
+              text: 'Home',
+            },
+            ...categories.map((x) => ({
+              text: x.name,
+              slug: x.slug,
+            })),
+          ]}
+        />
+
+        <div className="self-start">
+          <ClickCounter />
+        </div>
       </div>
 
       <div>{children}</div>

@@ -1,42 +1,55 @@
 {
+  "name": "app-playground",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
-    "dev:tailwind": "concurrently 'next dev --turbo' 'npm run tailwind --watch'",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "dev:tailwind": "concurrently 'next dev --turbo' 'npm run tailwind --watch'",
     "lint": "next lint",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "start": "next start",
+    "test": "yarn prettier:check && yarn lint",
     "tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
-    "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
     "postinstall": "npm run tailwind"
   },
-  "prettier": {
-    "arrowParens": "always",
-    "semi": true,
-    "trailingComma": "all",
-    "singleQuote": true
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.16",
+    "@next/font": "^13.1.7-canary.26",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "clsx": "^1.2.1",
-    "concurrently": "^7.6.0",
-    "next": "latest",
+    "date-fns": "^2.29.3",
+    "dinero.js": "^2.0.0-alpha.14",
+    "ms": "^3.0.0-canary.1",
+    "next": "^13.2.2-canary.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.0-beta.11",
-    "styled-jsx": "^5.1.2",
+    "styled-components": "^6.0.0-beta.14",
     "use-count-up": "^3.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.14.1",
-    "@types/react": "^18.0.28",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^18.15.10",
+    "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.34.0",
-    "eslint-config-next": "latest",
+    "@vercel/git-hooks": "^1.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.36.0",
+    "eslint-config-next": "^13.2.4",
+    "lint-staged": "^13.2.0",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5",
     "tailwindcss": "^3.2.7",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.2"
   }
 }

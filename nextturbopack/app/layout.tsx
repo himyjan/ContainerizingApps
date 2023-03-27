@@ -1,7 +1,16 @@
-import '@/styles/dist.css';
-import React from 'react';
-import AddressBar from '@/ui/AddressBar';
-import GlobalNav from './GlobalNav';
+import '#/styles/globals.css';
+import { AddressBar } from '#/ui/address-bar';
+import Byline from '#/ui/byline';
+import { GlobalNav } from '#/ui/global-nav';
+
+export const metadata = {
+  title: {
+    default: 'Next.js App Router',
+    template: '%s | Next.js App Router',
+  },
+  description:
+    'A playground to explore new Next.js App Router features such as nested layouts, instant loading states, streaming, and component level data fetching.',
+};
 
 export default function RootLayout({
   children,
@@ -9,47 +18,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <head>
-        <title>Next.js Turbopack App Directory Playground</title>
-      </head>
-      <body className="overflow-y-scroll bg-zinc-900">
-        <div className="grid grid-cols-[1fr,minmax(auto,240px),min(800px,100%),1fr] gap-x-8 py-8">
-          <div className="col-start-2">
-            <GlobalNav />
-          </div>
+    <html lang="en" className="[color-scheme:dark]">
+      <head />
+      <body className="overflow-y-scroll bg-gray-1100 bg-[url('/grid.svg')]">
+        <GlobalNav />
 
-          <div className="col-start-3 space-y-6">
-            <AddressBar />
-
-            <div className="rounded-xl border border-zinc-800 bg-black p-8">
-              {children}
+        <div className="lg:pl-72">
+          <div className="mx-auto max-w-4xl space-y-8 px-2 pt-20 lg:py-8 lg:px-8">
+            <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
+              <div className="rounded-lg bg-black">
+                <AddressBar />
+              </div>
             </div>
-          </div>
 
-          <div className="col-start-3 col-end-4 mt-28 flex items-center justify-center">
-            <div className="text-sm text-zinc-600">
-              Created by the <b>Next.js</b>
-              {' team at '}
-              <a href="https://vercel.com">
-                <b>Vercel</b>
-              </a>
-              {'. '}
-              <a
-                className="underline decoration-dotted underline-offset-4"
-                href="https://github.com/vercel/next.js/examples/with-turbopack"
-              >
-                View the code
-              </a>
-              {' or '}
-              <a
-                className="underline decoration-dotted underline-offset-4"
-                href="https://vercel.com/templates/next.js"
-              >
-                deploy your own
-              </a>
-              {'.'}
+            <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
+              <div className="rounded-lg bg-black p-3.5 lg:p-6">{children}</div>
             </div>
+            <Byline className="fixed sm:hidden" />
           </div>
         </div>
       </body>

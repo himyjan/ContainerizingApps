@@ -1,18 +1,25 @@
-import { fetchSubCategory, type PageProps } from '@/lib/getCategories';
-import { Boundary } from '@/ui/Boundary';
-import { use } from 'react';
-import { Counter } from '../../ClickCounter';
+import { fetchSubCategory } from '#/lib/get-categories';
+import { Boundary } from '#/ui/boundary';
+import { notFound } from 'next/navigation';
+import { Counter } from '../../context-click-counter';
 
-export default function Page({ params }: PageProps) {
-  const category = use(
-    fetchSubCategory(params.categorySlug, params.subCategorySlug),
+export default async function Page({
+  params,
+}: {
+  params: { categorySlug: string; subCategorySlug: string };
+}) {
+  const category = await fetchSubCategory(
+    params.categorySlug,
+    params.subCategorySlug,
   );
-  if (!category) return null;
+  if (!category) notFound();
 
   return (
     <Boundary labels={['Page [Server Component]']} animateRerendering={false}>
       <div className="space-y-8">
-        <div className="text-xl font-medium text-zinc-500">{category.name}</div>
+        <h1 className="text-xl font-medium text-gray-400/80">
+          {category.name}
+        </h1>
 
         <Counter />
       </div>

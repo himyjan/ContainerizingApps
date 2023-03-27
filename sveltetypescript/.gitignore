@@ -2,3 +2,9 @@
 /public/build/
 
 .DS_Store
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb
