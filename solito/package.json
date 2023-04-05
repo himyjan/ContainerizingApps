@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@types/react": "^18.0.32",
+    "@types/react": "^18.0.33",
     "@types/react-native": "^0.71.5",
     "eslint": "^8.37.0",
     "prettier": "^2.8.7",
