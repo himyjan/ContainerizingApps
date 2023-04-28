@@ -32,7 +32,7 @@
     "@angular-devkit/build-angular": "^15.2.4",
     "@angular/cli": "~15.2.4",
     "@angular/compiler-cli": "^15.2.5",
-    "@nrwl/vite": "^15.9.2",
+    "@nrwl/vite": "^16.0.0",
     "jsdom": "^21.1.1",
     "typescript": "~4.9.5",
     "vite": "^4.2.1",
