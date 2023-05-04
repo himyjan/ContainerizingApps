@@ -5,7 +5,7 @@
 # EXPOSE 80
 # EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0.400 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0.500 AS build
 WORKDIR /src
 COPY ["blazorserver/blazorserver.csproj", "blazorserver/"]
 RUN dotnet restore "blazorserver/blazorserver.csproj"
