@@ -1,0 +1,55 @@
+{
+  "name": "app-playground",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "dev:tailwind": "concurrently 'next dev --turbo' 'npm run tailwind --watch'",
+    "lint": "next lint",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "start": "next start",
+    "test": "yarn prettier:check && yarn lint",
+    "tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
+    "postinstall": "npm run tailwind"
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "@next/font": "^13.4.4",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "clsx": "^1.2.1",
+    "date-fns": "^2.30.0",
+    "dinero.js": "^2.0.0-alpha.14",
+    "ms": "^3.0.0-canary.1",
+    "next": "^13.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.0-rc.2",
+    "use-count-up": "^3.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "@vercel/git-hooks": "^1.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.41.0",
+    "eslint-config-next": "^13.4.4",
+    "lint-staged": "^13.2.2",
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.4"
+  }
+}

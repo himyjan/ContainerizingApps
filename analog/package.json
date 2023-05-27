@@ -1,0 +1,51 @@
+{
+  "name": "analog-app",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "dev": "ng serve",
+    "ng": "ng",
+    "start": "npm run dev",
+    "build": "ng build",
+    "watch": "ng build --watch",
+    "test": "ng test"
+  },
+  "dependencies": {
+    "@analogjs/content": "^0.2.0-beta.13",
+    "@analogjs/router": "^0.2.0-beta.13",
+    "@angular/animations": "^16.0.3",
+    "@angular/common": "^16.0.3",
+    "@angular/compiler": "^16.0.3",
+    "@angular/core": "^16.0.3",
+    "@angular/forms": "^16.0.3",
+    "@angular/platform-browser": "^16.0.3",
+    "@angular/platform-browser-dynamic": "^16.0.3",
+    "@angular/platform-server": "^16.0.3",
+    "@angular/router": "^16.0.3",
+    "@nx/angular": "^16.2.2",
+    "front-matter": "^4.0.2",
+    "marked": "^5.0.3",
+    "prismjs": "^1.29.0",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.5.2",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@analogjs/platform": "^0.2.0-beta.13",
+    "@angular-devkit/build-angular": "^16.0.3",
+    "@angular/cli": "~16.0.3",
+    "@angular/compiler-cli": "^16.0.3",
+    "@nx/vite": "^16.2.2",
+    "nx": "^16.2.2",
+    "jsdom": "^22.0.0",
+    "typescript": "~5.0.4",
+    "vite": "^4.3.9",
+    "vitest": "^0.31.1",
+    "tailwindcss": "^3.3.2",
+    "postcss": "^8.4.23",
+    "autoprefixer": "^10.4.14"
+  }
+}
