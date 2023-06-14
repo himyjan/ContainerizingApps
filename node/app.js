@@ -1,12 +1,12 @@
-const express = require('express')
-const PORT = 4000
+const express = require('hyper-express')
+const PORT = 3000
 
-const app = express()
+const app = new express.Server()
 
 app.get('/', (req, res) => {
     res.send("Hello from node app")
 })
 
-app.listen(PORT, () => {
+app.listen(PORT).then(() => {
     console.log(`App is listening on port : ${PORT}`)
 })

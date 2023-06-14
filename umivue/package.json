@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "author": "",
+  "scripts": {
+    "build": "umi build",
+    "dev": "umi dev",
+    "postinstall": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "umi": "^4.0.69",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@umijs/preset-vue": "^4.0.69",
+    "typescript": "^5.0.4"
+  }
+}
