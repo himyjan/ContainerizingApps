@@ -15,7 +15,7 @@
     "@acme/db": "*",
     "@trpc/client": "^10.28.0",
     "@trpc/server": "^10.28.0",
-    "superjson": "1.12.3",
+    "superjson": "1.12.4",
     "zod": "^3.21.4"
   },
   "devDependencies": {
