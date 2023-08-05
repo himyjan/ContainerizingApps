@@ -19,7 +19,7 @@
 		"@sveltejs/kit": "^1.19.0",
 		"@types/cookie": "^0.5.1",
 		"eslint": "^8.41.0",
-		"eslint-config-prettier": "^8.8.0",
+		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.0.0",
