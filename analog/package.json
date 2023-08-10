@@ -36,7 +36,7 @@
   "devDependencies": {
     "@analogjs/platform": "latest",
     "@angular-devkit/build-angular": "^16.1.0",
-    "@angular/cli": "~16.1.0",
+    "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "^16.1.0",
     "@nx/vite": "^16.3.2",
     "nx": "^16.3.2",
