@@ -1,0 +1,42 @@
+{
+  "name": "@acme/nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "clean": "git clean -xdf .next .turbo node_modules",
+    "dev": "next dev",
+    "lint": "SKIP_ENV_VALIDATION=1 next lint",
+    "lint:fix": "pnpm lint --fix",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@acme/api": "*",
+    "@acme/auth": "*",
+    "@acme/db": "*",
+    "@acme/tailwind-config": "*",
+    "@tanstack/react-query": "^4.35.3",
+    "@trpc/client": "^10.38.3",
+    "@trpc/next": "^10.38.3",
+    "@trpc/react-query": "^10.38.3",
+    "@trpc/server": "^10.38.3",
+    "next": "^13.4.19",
+    "next-auth": "^4.23.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "superjson": "1.13.1",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "*",
+    "@types/node": "^20.6.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.49.0",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2"
+  }
+}
