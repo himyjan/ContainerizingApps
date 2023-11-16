@@ -6,13 +6,13 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
-import { TRPCError, initTRPC } from "@trpc/server";
-import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { getServerSession, type Session } from "@acme/auth";
-import { prisma } from "@acme/db";
+import { auth } from "@acme/auth";
+import type { Session } from "@acme/auth";
+import { db } from "@acme/db";
 
 /**
  * 1. CONTEXT
@@ -23,9 +23,9 @@ import { prisma } from "@acme/db";
  * processing a request
  *
  */
-type CreateContextOptions = {
+interface CreateContextOptions {
   session: Session | null;
-};
+}
 
 /**
  * This helper generates the "internals" for a tRPC context. If you need to use
@@ -39,7 +39,7 @@ type CreateContextOptions = {
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
-    prisma,
+    db,
   };
 };
 
@@ -48,11 +48,14 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = async (opts: CreateNextContextOptions) => {
-  const { req, res } = opts;
+export const createTRPCContext = async (opts: {
+  req?: Request;
+  auth: Session | null;
+}) => {
+  const session = opts.auth ?? (await auth());
+  const source = opts.req?.headers.get("x-trpc-source") ?? "unknown";
 
-  // Get the session from the server using the unstable_getServerSession wrapper function
-  const session = await getServerSession({ req, res });
+  console.log(">>> tRPC Request from", source, "by", session?.user);
 
   return createInnerTRPCContext({
     session,
