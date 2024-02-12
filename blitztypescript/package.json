@@ -46,7 +46,7 @@
     "@types/node": "^20.10.8",
     "@types/preview-email": "^3.0.4",
     "@types/react": "^18.2.47",
-    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.1.0",
