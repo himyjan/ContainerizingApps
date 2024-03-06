@@ -22,7 +22,7 @@
     "render": "./scripts/render.js"
   },
   "dependencies": {
-    "nuejs-core": "^0.3.0",
+    "nuejs-core": "^0.4.0",
     "js-yaml": "^4.1.0"
   }
 }
