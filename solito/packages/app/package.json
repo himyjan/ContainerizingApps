@@ -3,8 +3,8 @@
   "name": "app",
   "main": "index.ts",
   "dependencies": {
-    "@react-navigation/native": "^6.1.7",
-    "@react-navigation/native-stack": "^6.9.13",
+    "@react-navigation/native": "^6.1.17",
+    "@react-navigation/native-stack": "^6.9.26",
     "moti": "latest",
     "nativewind": "4.0.36",
     "solito": "4.2.2"

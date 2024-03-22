@@ -14,14 +14,14 @@
         "outputPath": "/Users/rain/Desktop/Code/ContainerizingApps_Github/blazorwasm/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": ["/Users/rain/.config/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net7.0"],
+        "originalTargetFrameworks": ["net8.0"],
         "sources": {
           "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -30,8 +30,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",

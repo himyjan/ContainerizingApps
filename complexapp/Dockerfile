@@ -26,7 +26,7 @@ FROM build AS publish
 RUN dotnet publish -c release --no-build -o /app
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/runtime:7.0
+FROM mcr.microsoft.com/dotnet/runtime:8.0
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "complexapp.dll"]
