@@ -29,7 +29,7 @@
     "typescript": "~5.5.0",
     "vavite": "^4.1.1",
     "vite": "^5.2.2",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^5.0.0"
   },
   "prettier": {
     "singleQuote": true
