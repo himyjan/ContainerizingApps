@@ -19,9 +19,10 @@ next-env.d.ts
 
 # expo
 .expo/
-dist/
 expo-env.d.ts
 apps/expo/.gitignore
+apps/expo/ios
+apps/expo/android
 
 # production
 build
@@ -44,7 +45,8 @@ yarn-error.log*
 .vercel
 
 # typescript
-*.tsbuildinfo
+dist/
+.cache
 
 # turbo
 .turbo
