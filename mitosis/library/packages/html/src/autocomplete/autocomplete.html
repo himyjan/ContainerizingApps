@@ -1,0 +1,310 @@
+<div class="div">
+  Autocomplete:
+
+  <div class="div-2">
+    <input
+      placeholder="Search for a U.S. university"
+      class="input"
+      data-el="input-1"
+      data-dom-state="input-2"
+    />
+    <button class="button" data-el="button-1">X</button>
+  </div>
+  <template data-el="show">
+    <ul class="ul">
+      <template data-el="for">
+        <li class="li" data-el="li-1">
+          <template data-el="show-2">
+            <props.renderChild data-el="props-render-child"></props.renderChild>
+          </template>
+        </li>
+      </template>
+    </ul>
+  </template>
+</div>
+<style>
+  .div {
+    padding: 10px;
+    max-width: 700px;
+  }
+  .div-2 {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .input {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    border-color: #000000;
+    width: 100%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .button {
+    cursor: pointer;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    color: #ffffff;
+    background-color: #ef4444;
+  }
+  .ul {
+    border-radius: 0.25rem;
+    height: 10rem;
+    margin: unset;
+    padding: unset;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .li {
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-color: #e5e7eb;
+    cursor: pointer;
+  }
+  .li:hover {
+    background-color: #f3f4f6;
+  }
+</style>
+<script>
+  (() => {
+    const state = {
+      showSuggestions: false,
+      suggestions: [],
+      inputVal: "",
+      setInputValue(value: string) {
+        state.inputVal = value;
+        update();
+      },
+      handleClick(item) {
+        state.setInputValue(state.transform(item));
+        state.showSuggestions = false;
+        update();
+      },
+      fetchVals(city: string) {
+        if (props.getValues) {
+          return props.getValues(city);
+        }
+        return fetch(
+          `http://universities.hipolabs.com/search?name=${city}&country=united+states`
+        ).then((x) => x.json());
+      },
+      transform(x) {
+        return props.transformData ? props.transformData(x) : x.name;
+      },
+    };
+    let props = {};
+    let context = null;
+    let nodesToDestroy = [];
+    let pendingUpdate = false;
+
+    function destroyAnyNodes() {
+      // destroy current view template refs before rendering again
+      nodesToDestroy.forEach((el) => el.remove());
+      nodesToDestroy = [];
+    }
+
+    // Function to update data bindings and loops
+    // call update() when you mutate state and need the updates to reflect
+    // in the dom
+    function update() {
+      if (pendingUpdate === true) {
+        return;
+      }
+      pendingUpdate = true;
+
+      document.querySelectorAll("[data-el='input-1']").forEach((el) => {
+        el.value = state.inputVal;
+
+        el.removeEventListener("input", onInput1Input);
+        el.addEventListener("input", onInput1Input);
+
+        el.removeEventListener("focus", onInput1Focus);
+        el.addEventListener("focus", onInput1Focus);
+      });
+
+      document.querySelectorAll("[data-el='button-1']").forEach((el) => {
+        el.removeEventListener("click", onButton1Click);
+        el.addEventListener("click", onButton1Click);
+      });
+
+      document.querySelectorAll("[data-el='show']").forEach((el) => {
+        const whenCondition =
+          state.suggestions.length > 0 && state.showSuggestions;
+        if (whenCondition) {
+          showContent(el);
+        }
+      });
+
+      document.querySelectorAll("[data-el='for']").forEach((el) => {
+        let array = state.suggestions;
+        renderLoop(el, array, "item", "idx");
+      });
+
+      document.querySelectorAll("[data-el='li-1']").forEach((el) => {
+        const idx = getScope(el, "idx");
+
+        el.key = idx;
+
+        el.removeEventListener("click", onLi1Click);
+        el.addEventListener("click", onLi1Click);
+      });
+
+      document.querySelectorAll("[data-el='show-2']").forEach((el) => {
+        const whenCondition = props.renderChild;
+        if (whenCondition) {
+          showContent(el);
+        }
+      });
+
+      document
+        .querySelectorAll("[data-el='props-render-child']")
+        .forEach((el) => {
+          const item = getScope(el, "item");
+
+          el.setAttribute("item", item);
+        });
+
+      destroyAnyNodes();
+
+      state.fetchVals(state.inputVal).then((newVals) => {
+        if (!newVals?.filter) {
+          console.error("Invalid response from getValues:", newVals);
+          return;
+        }
+        state.suggestions = newVals.filter((data) =>
+          state
+            .transform(data)
+            .toLowerCase()
+            .includes(state.inputVal.toLowerCase())
+        );
+        update();
+      });
+
+      pendingUpdate = false;
+    }
+
+    // Event handler for 'input' event on input-1
+    function onInput1Input(event) {
+      state.inputVal = event.target.value;
+      update();
+    }
+
+    // Event handler for 'focus' event on input-1
+    function onInput1Focus(event) {
+      state.showSuggestions = true;
+      update();
+    }
+
+    // Event handler for 'click' event on button-1
+    function onButton1Click(event) {
+      state.inputVal = "";
+      update();
+      state.showSuggestions = false;
+      update();
+    }
+
+    // Event handler for 'click' event on li-1
+    function onLi1Click(event) {
+      const item = getScope(event.currentTarget, "item");
+      state.handleClick(item);
+    }
+
+    // Update with initial state on first load
+    update();
+
+    function showContent(el) {
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement/content
+      // grabs the content of a node that is between <template> tags
+      // iterates through child nodes to register all content including text elements
+      // attaches the content after the template
+
+      const elementFragment = el.content.cloneNode(true);
+      const children = Array.from(elementFragment.childNodes);
+      children.forEach((child) => {
+        if (el?.scope) {
+          child.scope = el.scope;
+        }
+        if (el?.context) {
+          child.context = el.context;
+        }
+        nodesToDestroy.push(child);
+      });
+      el.after(elementFragment);
+    }
+
+    // Helper text DOM nodes
+    function renderTextNode(el, text) {
+      const textNode = document.createTextNode(text);
+      if (el?.scope) {
+        textNode.scope = el.scope;
+      }
+      if (el?.context) {
+        child.context = el.context;
+      }
+      el.after(textNode);
+      nodesToDestroy.push(el.nextSibling);
+    }
+
+    // Helper to render loops
+    function renderLoop(template, array, itemName, itemIndex, collectionName) {
+      const collection = [];
+      for (let [index, value] of array.entries()) {
+        const elementFragment = template.content.cloneNode(true);
+        const children = Array.from(elementFragment.childNodes);
+        const localScope = {};
+        let scope = localScope;
+        if (template?.scope) {
+          const getParent = {
+            get(target, prop, receiver) {
+              if (prop in target) {
+                return target[prop];
+              }
+              if (prop in template.scope) {
+                return template.scope[prop];
+              }
+              return target[prop];
+            },
+          };
+          scope = new Proxy(localScope, getParent);
+        }
+        children.forEach((child) => {
+          if (itemName !== undefined) {
+            scope[itemName] = value;
+          }
+          if (itemIndex !== undefined) {
+            scope[itemIndex] = index;
+          }
+          if (collectionName !== undefined) {
+            scope[collectionName] = array;
+          }
+          child.scope = scope;
+          if (template.context) {
+            child.context = template.context;
+          }
+          this.nodesToDestroy.push(child);
+          collection.unshift(child);
+        });
+        collection.forEach((child) => template.after(child));
+      }
+    }
+
+    function getScope(el, name) {
+      do {
+        let value = el?.scope?.[name];
+        if (value !== undefined) {
+          return value;
+        }
+      } while ((el = el.parentNode));
+    }
+  })();
+</script>
