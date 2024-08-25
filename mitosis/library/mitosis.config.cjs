@@ -31,8 +31,15 @@ module.exports = {
     typescript: true,
   },
   options: {
+    angular: {
+      angularStandalone: true,
+    },
     react: {
       stylesType: 'style-tag',
+    },
+    vue: {
+      vueVersion: '3',
+      vueApi: 'composition',
     },
     svelte: {},
     qwik: {},
