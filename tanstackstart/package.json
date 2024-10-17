@@ -1,5 +1,5 @@
 {
-  "name": "tanstackstart",
+  "name": "tanstackstart-app",
   "private": true,
   "sideEffects": false,
   "type": "module",
