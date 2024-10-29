@@ -43,7 +43,7 @@
     "@testing-library/react": "^16.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.30",
+    "@types/node": "^22.0.0",
     "@types/preview-email": "^3.0.4",
     "@types/react": "^18.2.67",
     "eslint": "^9.0.0",
