@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "expo": "~52.0.0",
-    "one": "1.1.411",
+    "one": "1.1.418",
     "react": "^19.0.0",
     "react-native": "0.77.0",
     "react-native-safe-area-context": "5.1.0",
