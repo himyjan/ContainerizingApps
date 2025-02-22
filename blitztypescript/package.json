@@ -28,7 +28,7 @@
     "@blitzjs/next": "^3.0.0",
     "@blitzjs/rpc": "^3.0.0",
     "@prisma/client": "^6.0.0",
-    "blitz": "^2.0.5",
+    "blitz": "^3.0.0",
     "next": "^15.0.0",
     "prisma": "^6.0.0",
     "react": "^19.0.0",
