@@ -1,5 +1,25 @@
-# Dependencies
-node_modules/
+node_modules
+package-lock.json
+yarn.lock
+
+.DS_Store
+.cache
+.env
+.vercel
+.output
+.vinxi
+
+/build/
+/api/
+/server/build
+/public/build
+.vinxi
+# Sentry Config File
+.env.sentry-build-plugin
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
 
 # Env
 .env
