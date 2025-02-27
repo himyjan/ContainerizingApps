@@ -23,7 +23,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn TanStack
+          Learning TanStack
         </a>
       </header>
     </div>

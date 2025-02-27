@@ -11,16 +11,9 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as StartTestImport } from './routes/start-test'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
-
-const StartTestRoute = StartTestImport.update({
-  id: '/start-test',
-  path: '/start-test',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -39,13 +32,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/start-test': {
-      id: '/start-test'
-      path: '/start-test'
-      fullPath: '/start-test'
-      preLoaderRoute: typeof StartTestImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -53,37 +39,32 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/start-test': typeof StartTestRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/start-test': typeof StartTestRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/start-test': typeof StartTestRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/start-test'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/start-test'
-  id: '__root__' | '/' | '/start-test'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  StartTestRoute: typeof StartTestRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  StartTestRoute: StartTestRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,15 +77,11 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/start-test"
+        "/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/start-test": {
-      "filePath": "start-test.tsx"
     }
   }
 }
