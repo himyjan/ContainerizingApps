@@ -1,4 +1,0 @@
-[submodule "nexttypescript-t3-turbo"]
-	path = nexttypescript-t3-turbo
-	url = https://github.com/t3-oss/create-t3-turbo.git
-	branch = main
