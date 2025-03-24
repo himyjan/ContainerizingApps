@@ -19,7 +19,7 @@
     "@types/react": "~18.3.12",
     "babel-plugin-react-compiler": "19.0.0-beta-aeaed83-20250323",
     "react-compiler-runtime": "19.0.0-beta-aeaed83-20250323",
-    "typescript": "~5.3.3"
+    "typescript": "~5.8.0"
   },
   "scripts": {
     "start": "expo start",
