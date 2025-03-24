@@ -2,3 +2,7 @@
 	path = nexttypescript-t3-turbo
 	url = https://github.com/t3-oss/create-t3-turbo.git
 	branch = main
+[submodule "hpml"]
+	path = hpml
+	url = https://github.com/hmpl-language/hello-hmpl-starter.git
+	branch = main
