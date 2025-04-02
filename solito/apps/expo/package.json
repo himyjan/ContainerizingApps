@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
-    "@types/react": "~19.0.0",
+    "@types/react": "~19.1.0",
     "babel-plugin-react-compiler": "19.0.0-beta-e993439-20250328",
     "react-compiler-runtime": "19.0.0-beta-e993439-20250328",
     "typescript": "~5.8.0"
