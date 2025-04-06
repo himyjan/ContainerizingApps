@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: postgres:16.3
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: flutterserverpod
+      POSTGRES_PASSWORD: "b1J4_xHsG0XYgQv0J7nB4cNi2ktiK9WF"
+    volumes:
+      - flutterserverpod_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "xSDJ0iwqJk1ME1SHtkPsRSMNVIs8ZaPI"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: postgres:16.3
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: flutterserverpod_test
+      POSTGRES_PASSWORD: "RmV3owGHoUu1h1jnzFbRMUZFUh3Oczrf"
+    volumes:
+      - flutterserverpod_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "m8V1Ad1vilUNABDGxFJHny5taxuOWyDj"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  flutterserverpod_data:
+  flutterserverpod_test_data:

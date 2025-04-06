@@ -1,0 +1,23 @@
+{
+  "name": "next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "app": "*",
+    "next": "^15.2.3",
+    "raf": "^3.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-native-web": "~0.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.14.0",
+    "eslint-config-next": "15.2.4"
+  }
+}
