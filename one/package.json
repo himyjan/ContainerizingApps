@@ -17,7 +17,7 @@
     "expo": "~52.0.17",
     "one": "1.1.479",
     "react": "^19.0.0",
-    "react-native": "^0.78.0",
+    "react-native": "^0.79.0",
     "react-native-reanimated": "~3.17.0",
     "react-native-safe-area-context": "5.3.0",
     "react-native-screens": "4.10.0",
