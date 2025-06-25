@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "solid-start-node": "^0.3.11",
-    "vite": "^6.0.0"
+    "vite": "^7.0.0"
   },
   "engines": {
     "node": ">=16"
