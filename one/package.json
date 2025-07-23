@@ -18,7 +18,7 @@
     "one": "1.1.506",
     "react": "^19.0.0",
     "react-native": "^0.80.0",
-    "react-native-reanimated": "~3.19.0",
+    "react-native-reanimated": "~4.0.0",
     "react-native-safe-area-context": "5.5.2",
     "react-native-screens": "4.13.1",
     "react-native-web": "^0.20.0"
