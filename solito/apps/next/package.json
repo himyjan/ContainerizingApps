@@ -17,7 +17,7 @@
     "react-native-web": "~0.21.0"
   },
   "devDependencies": {
-    "@types/node": "22.18.10",
+    "@types/node": "22.18.11",
     "eslint-config-next": "15.5.5"
   }
 }
