@@ -29,7 +29,7 @@
     "@blitzjs/rpc": "^3.0.0",
     "@prisma/client": "^6.0.0",
     "blitz": "^3.0.0",
-    "next": "^15.0.0",
+    "next": "^16.0.0",
     "prisma": "^6.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -38,7 +38,7 @@
     "@hookform/resolvers": "^5.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.0.0",
+    "@next/bundle-analyzer": "^16.0.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^16.0.0",
     "@testing-library/react-hooks": "^8.0.1",
@@ -47,7 +47,7 @@
     "@types/preview-email": "^3.0.4",
     "@types/react": "^19.0.0",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^15.0.0",
+    "eslint-config-next": "^16.0.0",
     "eslint-config-prettier": "^10.0.0",
     "husky": "^9.0.11",
     "jest": "^30.0.0",
