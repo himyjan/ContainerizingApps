@@ -20,7 +20,7 @@
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
-    "eslint": "^9.0.0",
+    "eslint": "^10.0.0",
     "eslint-plugin-vue": "^10.0.0",
     "@vitejs/plugin-vue": "^6.0.0",
     "typescript": "^5.4.3",
