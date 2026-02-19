@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "expo": "~54.0.0",
-    "one": "1.9.3",
+    "one": "1.9.4",
     "react": "^19.0.0",
     "react-native": "^0.84.0",
     "react-native-reanimated": "~4.2.0",
