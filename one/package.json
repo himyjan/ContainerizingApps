@@ -14,7 +14,7 @@
     "ios": "one run:ios"
   },
   "dependencies": {
-    "expo": "~54.0.0",
+    "expo": "~55.0.0",
     "one": "1.9.12",
     "react": "^19.0.0",
     "react-native": "^0.84.0",
