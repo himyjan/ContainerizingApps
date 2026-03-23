@@ -36,7 +36,7 @@
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^6.0.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
