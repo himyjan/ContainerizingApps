@@ -7,15 +7,15 @@
   ],
   "devDependencies": {
     "@types/react": "^19.0.0",
-    "eslint": "^8.21.0",
+    "eslint": "^10.0.0",
     "turbo": "^2.4.4",
-    "typescript": "^5.2.2"
+    "typescript": "^6.0.0"
   },
   "scripts": {
     "native": "cd apps/expo && yarn start",
     "web": "cd apps/next && yarn next"
   },
-  "packageManager": "yarn@4.8.1",
+  "packageManager": "yarn@4.13.0",
   "eslintConfig": {
     "extends": "next",
     "settings": {
