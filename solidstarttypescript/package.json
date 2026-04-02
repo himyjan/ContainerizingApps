@@ -11,7 +11,7 @@
     "@solidjs/router": "^0.16.0",
     "solid-js": "^1.8.16",
     "solid-start": "^0.3.11",
-    "undici": "^7.0.0"
+    "undici": "^8.0.0"
   },
   "devDependencies": {
     "solid-start-node": "^0.3.11",
