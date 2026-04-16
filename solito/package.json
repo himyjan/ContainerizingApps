@@ -15,7 +15,7 @@
     "native": "cd apps/expo && yarn start",
     "web": "cd apps/next && yarn next"
   },
-  "packageManager": "yarn@4.13.0",
+  "packageManager": "yarn@4.14.0",
   "eslintConfig": {
     "extends": "next",
     "settings": {
