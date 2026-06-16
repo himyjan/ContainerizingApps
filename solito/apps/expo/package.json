@@ -15,7 +15,7 @@
     "react-native-screens": "~4.25.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
+    "@babel/core": "^8.0.0",
     "@types/react": "~19.2.0",
     "babel-plugin-react-compiler": "19.0.0-beta-ebf51a3-20250411",
     "react-compiler-runtime": "19.0.0-beta-ebf51a3-20250411",
