@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "app": "*",
-    "expo": "57.0.2",
+    "expo": "57.0.4",
     "expo-image": "~57.0.0",
     "expo-linear-gradient": "~57.0.0",
     "expo-linking": "~57.0.0",
