@@ -34,7 +34,7 @@
     "@types/node": "^24.0.0",
     "@quasar/app-vite": "^3.0.0",
     "autoprefixer": "^10.4.2",
-    "typescript": "~6.0.0"
+    "typescript": "~7.0.0"
   },
   "engines": {
     "node": "^28 || ^26 || ^24 || ^22 || ^20 || ^18",
