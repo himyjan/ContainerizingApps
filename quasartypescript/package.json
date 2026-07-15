@@ -15,7 +15,7 @@
     "postinstall": "quasar prepare"
   },
   "dependencies": {
-    "pinia": "^3.0.1",
+    "pinia": "^4.0.0",
     "@quasar/extras": "^2.0.0",
     "quasar": "^2.16.0",
     "vue": "^3.4.18",
