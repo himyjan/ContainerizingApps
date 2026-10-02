@@ -16,7 +16,7 @@
 		"@neoconfetti/svelte": "^2.2.1",
 		"@playwright/test": "^1.42.1",
 		"@sveltejs/adapter-auto": "^8.0.0",
-		"@sveltejs/kit": "^2.5.4",
+		"@sveltejs/kit": "^3.0.0",
 		"@types/cookie": "^1.0.0",
 		"@typescript-eslint/eslint-plugin": "^8.0.0",
 		"@typescript-eslint/parser": "^8.0.0",
