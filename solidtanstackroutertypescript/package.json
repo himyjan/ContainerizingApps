@@ -13,7 +13,7 @@
     "@tanstack/router-devtools": "^1.111.11",
     "@tanstack/router-plugin": "^1.111.12",
     "@tanstack/solid-router": "^1.111.11",
-    "solid-js": "^1.9.5",
+    "solid-js": "^2.0.0",
     "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
