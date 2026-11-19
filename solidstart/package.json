@@ -8,7 +8,7 @@
   "type": "module",
   "dependencies": {
     "@solidjs/meta": "^2.0.0",
-    "@solidjs/router": "^1.0.0",
+    "@solidjs/router": "^2.0.0",
     "solid-js": "^2.0.0",
     "solid-start": "^0.3.11",
     "undici": "^8.0.0"
